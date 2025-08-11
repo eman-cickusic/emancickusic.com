@@ -2,43 +2,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const header = document.querySelector('header');
     
-    // Add shadow to header on scroll
+    // Add shadow to header on scroll for depth
     window.addEventListener('scroll', () => {
         if (window.scrollY > 10) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = 'none';
+            header.classList.remove('scrolled');
         }
     });
 
-    // Modal Logic
+    // --- Modal Logic ---
     const projectCards = document.querySelectorAll('.project-card');
+    const modals = document.querySelectorAll('.modal');
     
+    // Function to open a modal
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+    }
+
+    // Function to close all modals
+    function closeModal() {
+        modals.forEach(modal => {
+            modal.style.display = 'none';
+        });
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    // Add click event to each project card
     projectCards.forEach(card => {
         card.addEventListener('click', () => {
             const modalId = card.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
+            openModal(modalId);
         });
     });
 
-    const closeButtons = document.querySelectorAll('.close-button');
-    closeButtons.forEach(button => {
+    // Add click event to all close buttons
+    document.querySelectorAll('.close-button').forEach(button => {
         button.addEventListener('click', () => {
-            const modal = button.closest('.modal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal();
         });
     });
 
+    // Close modal if user clicks outside the content area
     window.addEventListener('click', (event) => {
         if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeModal();
         }
     });
-
+    
+    // Close modal on 'Escape' key press
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
 });
