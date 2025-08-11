@@ -50,6 +50,7 @@
     </header>
 
     <main id="main-content">
+        <!-- All sections are the same until the modals -->
         <section class="hero">
             <div class="hero-content">
                 <h1 class="fade-in">Building Automated and Resilient Cloud Systems on GCP.</h1>
@@ -155,7 +156,7 @@
                     <ul>
                         <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
                         <li><strong>Technical Challenge:</strong> Securely parsing the Terraform state file was solved by creating a dedicated Service Account with only the `storage.objects.get` permission on the specific `.tfstate` object, adhering to the principle of least privilege.</li>
-                        <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to **under 15 seconds** via natural language.</li>
+                        <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
                     </ul>
                     <a href="https://github.com/eman-cickusic/Intelligent-Cloud-Operations-Agent-LangChain-GCP" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
@@ -184,7 +185,7 @@
                     <ul>
                         <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected over Gen 1 for its superior event-driven capabilities, including built-in Pub/Sub triggers and longer processing timeouts, making it ideal for potentially complex validation logic without needing a containerized environment like Cloud Run.</li>
                         <li><strong>Technical Challenge:</strong> The core challenge was designing stateless, idempotent validation logic. The function was built to handle out-of-order or duplicate messages gracefully, ensuring that data anomalies (e.g., negative sensor readings) were flagged and routed to a secondary Pub/Sub topic for alerting without halting the entire pipeline.</li>
-                        <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle **1,000+ messages per second** with an average end-to-end latency (ingestion to BigQuery storage) of **under 2 seconds**, all while operating within GCP's zero-cost free tier for the expected data volume.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>, all while operating within GCP's zero-cost free tier for the expected data volume.</li>
                     </ul>
                     <a href="https://github.com/eman-cickusic/Real-Time-Serverless-Data-Pipeline-on-Google-Cloud" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
@@ -213,7 +214,7 @@
                     <ul>
                         <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature. This eliminated Kubernetes management overhead and provided "scale-to-zero" capability, making it highly cost-effective for a web application with variable traffic.</li>
                         <li><strong>Technical Challenge:</strong> Configuring secure, least-privilege IAM roles for the GitHub Actions pipeline was paramount. This was solved using Workload Identity Federation, which allows GitHub Actions to securely impersonate a GCP service account using short-lived credentials, completely avoiding static, long-lived keys.</li>
-                        <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from manual steps taking 30+ minutes to an average, zero-touch execution time of **4 minutes and 15 seconds** from `git push` to live deployment.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from manual steps taking 30+ minutes to an average, zero-touch execution time of <strong>4 minutes and 15 seconds</strong> from `git push` to live deployment.</li>
                     </ul>
                     <a href="https://github.com/eman-cickusic/gcp-cicd-demo" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
@@ -228,7 +229,7 @@
                 <h2>Production-Grade Service Mesh</h2>
                 <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
             </div>
-            <div class.modal-body">
+            <div class="modal-body">
                 <div class="case-study-section">
                     <h4>Problem Statement</h4>
                     <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges using advanced cloud-native patterns.</p>
@@ -241,8 +242,8 @@
                     <h4>Technical Decisions & Outcomes</h4>
                     <ul>
                         <li><strong>Architectural Choice:</strong> A canary deployment strategy was chosen over blue/green to demonstrate a more sophisticated, risk-averse release process. This allows for routing a small subset of live traffic (e.g., 10%) to a new version, enabling production testing with minimal user impact before a full rollout.</li>
-                        <li><strong>Technical Challenge:</strong> The most complex task was writing an Istio `AuthorizationPolicy` to enforce a zero-trust security posture. A policy was created to deny all traffic by default and explicitly only allow service-to-service communication on specific paths and HTTP methods (e.g., allow `GET` from `frontend` to `api-service` but deny `POST`).</li>
-                        <li><strong>Quantifiable Outcome:</strong> The entire GKE cluster, application, and Istio mesh setup was automated with Terraform, reducing deployment time from **over 4 hours** of manual steps to a repeatable, scripted deployment of **under 9 minutes**.</li>
+                        <li><strong>Technical Challenge:</strong> The most complex task was writing an Istio `AuthorizationPolicy` to enforce a zero-trust security posture. A policy was created to deny all traffic by default and explicitly only allow service-to-service communication on specific paths and HTTP methods.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The entire GKE cluster and Istio mesh setup was automated with Terraform, reducing deployment time from <strong>over 4 hours</strong> of manual steps to a repeatable, scripted deployment of <strong>under 9 minutes</strong>.</li>
                     </ul>
                     <a href="https://github.com/eman-cickusic/Installing-Cloud-Service-Mesh-on-Google-Kubernetes-Engine" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
