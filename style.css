@@ -6,6 +6,7 @@
     --secondary-color: #ffffff;
     --border-color: #d2d2d7;
     --text-secondary: #6e6e73;
+    --code-bg-color: #f8f9fa;
 }
 
 * {
@@ -93,6 +94,7 @@ main { padding-top: 60px; }
     font-weight: 700;
     letter-spacing: -1.5px;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 .hero p {
     font-size: 1.25rem;
@@ -131,6 +133,8 @@ main { padding-top: 60px; }
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 .project-card:hover {
     transform: translateY(-8px);
@@ -141,6 +145,7 @@ main { padding-top: 60px; }
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 .project-tags {
     display: flex;
@@ -160,6 +165,7 @@ main { padding-top: 60px; }
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
+    margin-top: auto;
 }
 
 /* 6. Experience Section */
@@ -168,12 +174,14 @@ main { padding-top: 60px; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+    align-items: start;
 }
 .experience-item {
     background: var(--secondary-color);
     padding: 2rem;
     border: 1px solid var(--border-color);
     border-radius: 16px;
+    height: 100%;
 }
 .experience-item h3 { font-size: 1.2rem; }
 .experience-company {
@@ -182,7 +190,7 @@ main { padding-top: 60px; }
     margin-bottom: 1rem;
 }
 .experience-item ul { list-style-position: outside; padding-left: 1.5rem; color: var(--text-secondary); }
-.experience-item li { margin-bottom: 0.5rem; }
+.experience-item li { margin-bottom: 0.8rem; line-height: 1.5; }
 
 /* 7. Footer */
 footer {
@@ -214,7 +222,7 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem a
 .modal-content {
     background-color: #ffffff;
     margin: 5% auto;
-    padding: 2.5rem;
+    padding: 2.5rem 3rem;
     border: 1px solid #d2d2d7;
     width: 90%;
     max-width: 800px;
@@ -235,7 +243,7 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem a
 .close-button:hover { color: #1d1d1f; }
 .modal-header h2 { font-size: 2rem; letter-spacing: -0.5px; margin-bottom: 0.5rem; }
 .modal-header .project-tags { margin-bottom: 2rem; }
-.case-study-section { margin-bottom: 2rem; }
+.case-study-section { margin-bottom: 2.5rem; }
 .case-study-section h4 {
     font-size: 1.2rem;
     font-weight: 600;
@@ -249,12 +257,15 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem a
 .case-study-section li { margin-bottom: 0.8rem; }
 .case-study-section .cta-button { margin-top: 1rem; }
 
-/* 9. SVG Diagram Styles */
+/* 9. SVG Diagram & Code Block Styles */
 .architecture-svg {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 .svg-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: #333; }
 .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; fill: #111; }
@@ -266,6 +277,22 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem a
 .svg-node-storage { fill: #f8d7da; stroke: #f5b7bb; }
 .svg-cluster { fill: #f0f0f0; stroke: #ccc; stroke-width: 0.5; }
 .architecture-svg path { stroke: #333; stroke-width: 1; fill: none; }
+
+.case-study-section pre {
+    background-color: var(--code-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Fira Code', 'monospace';
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+.case-study-section code {
+    color: var(--text-color);
+}
+
 
 /* 10. Accessibility & Animations */
 .skip-link { position: absolute; top: -999px; left: 0; background: var(--primary-color); color: white; padding: 1rem; z-index: 1002; }
@@ -280,8 +307,9 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem a
 @media (max-width: 768px) {
     .nav-brand { display: none; }
     nav { justify-content: center; }
-    .hero h1 { font-size: 2.8rem; }
+    .hero h1 { font-size: 2.8rem; line-height: 1.25; }
     .hero p { font-size: 1.1rem; }
     .section-title { font-size: 2.2rem; }
     .section-container { padding: 4rem 1.5rem; }
+    .modal-content { padding: 2rem 1.5rem; }
 }
