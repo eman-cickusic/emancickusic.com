@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production-Grade Service Mesh | Eman Čičkušić</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">Eman Čičkušić</div>
+            <ul>
+                <li><a href="index.html#projects">&larr; Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="case-study-container">
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Production-Grade Service Mesh</h2>
+                    <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
+                </div>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges using advanced cloud-native patterns.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg width="100%" viewBox="0 0 400 180" class="architecture-svg"><rect x="10" y="20" width="380" height="150" rx="8" class="svg-cluster"/><text x="20" y="35" class="svg-text-bold">GKE Cluster (Istio Enabled)</text><path d="M30 80 L70 80" marker-end="url(#arrow)"/><rect x="70" y="60" width="100" height="40" rx="4" class="svg-node-compute"/><text text-anchor="middle" x="120" y="82" class="svg-text">Frontend</text><path d="M170 80 L190 80" marker-end="url(#arrow)"/><rect x="190" y="40" width="100" height="35" rx="4" class="svg-node-compute"/><text text-anchor="middle" x="240" y="52" class="svg-text">API Service v1</text><text text-anchor="middle" x="240" y="64" class="svg-text-small">(90% Traffic)</text><rect x="190" y="85" width="100" height="35" rx="4" class="svg-node-canary"/><text text-anchor="middle" x="240" y="97" class="svg-text">API Service v2</text><text text-anchor="middle" x="240" y="109" class="svg-text-small">(10% Canary)</text><text text-anchor="middle" x="345" y="55" class="svg-text-bold">Observability</text><rect x="300" y="60" width="90" height="20" class="svg-node-service"/><text text-anchor="middle" x="345" y="73" class="svg-text">Cloud Monitoring</text><rect x="300" y="90" width="90" height="20" class="svg-node-service"/><text text-anchor="middle" x="345" y="103" class="svg-text">Cloud Trace</text><text x="200" y="160" class="svg-text-small" text-anchor="middle">All traffic secured with automatic mTLS encryption via Istio sidecar proxies.</text><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker></defs></svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> A canary deployment strategy was chosen over blue/green to demonstrate a more sophisticated, risk-averse release process, enabling production testing with minimal user impact before a full rollout.</li>
+                            <li><strong>Quantifiable Outcome:</strong> The entire GKE cluster and Istio mesh setup was automated with Terraform, reducing deployment time from <strong>over 4 hours</strong> of manual steps to a repeatable, scripted deployment of <strong>under 9 minutes</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Security & Cost Optimization</h4>
+                        <ul>
+                            <li><strong>Security Posture:</strong> A zero-trust network was enforced using an Istio `AuthorizationPolicy` to deny all traffic by default, with explicit rules only allowing required service-to-service communication. All inter-service traffic is automatically encrypted with mTLS by the mesh.</li>
+                            <li><strong>Cost Optimization:</strong> The GKE cluster was configured with node auto-provisioning and auto-scaling, allowing it to dynamically add or remove nodes based on workload demands, preventing over-provisioning and minimizing costs.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Zero-Trust Policy Example</h4>
+                        <p>The following Istio `AuthorizationPolicy` denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
+                        <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: api-service-policy
+spec:
+  selector:
+    matchLabels:
+      app: api-service
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/frontend"]
+    to:
+    - operation:
+        methods: ["GET"]
+</code></pre>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Testing Strategy</h4>
+                        <ul>
+                            <li><strong>Infrastructure Testing:</strong> The Terraform configuration was validated using `tflint` for best practices. The entire GKE cluster and Istio installation were deployed to a staging environment first to validate the setup before any production deployment.</li>
+                            <li><strong>Policy Verification:</strong> After applying the `AuthorizationPolicy`, tests were run from a non-whitelisted pod to confirm that access to the `api-service` was correctly denied, explicitly verifying the zero-trust configuration.</li>
+                        </ul>
+                        <a href="https://github.com/eman-cickusic/Installing-Cloud-Service-Mesh-on-Google-Kubernetes-Engine" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
