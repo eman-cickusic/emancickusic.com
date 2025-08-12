@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Serverless Data Pipeline | Eman Čičkušić</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">Eman Čičkušić</div>
+            <ul>
+                <li><a href="index.html#projects">&larr; Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="case-study-container">
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Real-Time Serverless Data Pipeline</h2>
+                    <div class="project-tags"><span>Pub/Sub</span><span>Cloud Functions</span><span>BigQuery</span><span>Python</span></div>
+                </div>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>IoT devices generate high-volume data streams that require immediate ingestion, validation, and analysis. This project's goal was to build a highly scalable, low-latency, and cost-effective serverless pipeline to handle this workflow.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg width="100%" viewBox="0 0 400 150" class="architecture-svg"><path d="M70 75 L90 75" marker-end="url(#arrow)"/><path d="M190 55 L210 55" marker-end="url(#arrow)"/><path d="M190 95 L210 95" marker-end="url(#arrow)"/><rect x="10" y="65" width="60" height="20" class="svg-node-user"/><text x="40" y="78" class="svg-text" text-anchor="middle">IoT Devices</text><rect x="90" y="65" width="100" height="20" class="svg-node-service"/><text x="140" y="78" class="svg-text" text-anchor="middle">Pub/Sub Topic</text><text x="140" y="60" class="svg-text-small" text-anchor="middle">(Data Ingestion)</text><rect x="210" y="45" width="110" height="20" class="svg-node-compute"/><text text-anchor="middle" x="265" y="58" class="svg-text">Cloud Function (Gen2)</text><text text-anchor="middle" x="265" y="40" class="svg-text-small">(Validation Logic)</text><rect x="210" y="85" width="110" height="20" class="svg-node-service"/><text text-anchor="middle" x="265" y="98" class="svg-text">Pub/Sub Topic</text><text text-anchor="middle" x="265" y="80" class="svg-text-small">(Alerts)</text><path d="M320 55 L340 55" marker-end="url(#arrow)"/><rect x="340" y="45" width="50" height="20" class="svg-node-storage"/><text text-anchor="middle" x="365" y="58" class="svg-text">BigQuery</text><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker></defs></svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like Cloud Run.</li>
+                            <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>, all while operating within GCP's zero-cost free tier for the expected data volume.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Security & Cost Optimization</h4>
+                        <ul>
+                            <li><strong>Security Posture:</strong> The Cloud Function was assigned a dedicated, non-default service account with the minimum required roles (`roles/pubsub.publisher`, `roles/bigquery.dataEditor`) to write to the downstream services, preventing privilege escalation.</li>
+                            <li><strong>Cost Optimization:</strong> The entire architecture is serverless, leveraging a "pay-per-use" model. This means zero cost when idle and automatic scaling during traffic spikes, making it vastly more cost-effective than a provisioned-server solution.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Testing Strategy</h4>
+                        <ul>
+                            <li><strong>Unit Testing:</strong> The core Python validation logic within the Cloud Function was unit-tested with `pytest`, using mock data to cover edge cases like malformed payloads and invalid sensor readings.</li>
+                            <li><strong>End-to-End Testing:</strong> A deployment script publishes a test message to the initial Pub/Sub topic and polls the target BigQuery table to confirm the entire pipeline completes successfully within latency targets.</li>
+                        </ul>
+                        <a href="https://github.com/eman-cickusic/Real-Time-Serverless-Data-Pipeline-on-Google-Cloud" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
