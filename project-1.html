@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Cloud Operations Agent | Eman Čičkušić</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">Eman Čičkušić</div>
+            <ul>
+                <li><a href="index.html#projects">&larr; Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="case-study-container">
+            <!-- PASTE PROJECT 1 CONTENT HERE -->
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Intelligent Cloud Operations Agent</h2>
+                    <div class="project-tags"><span>LangChain</span><span>Python</span><span>Terraform</span><span>FastAPI</span></div>
+                </div>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>Cloud operations teams rely on manual queries for routine diagnostics. This project aimed to create an AI agent to automate these tasks using natural language, providing instant Infrastructure-as-Code (IaC) awareness.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <!-- SVG Diagram here -->
+                        <svg width="100%" viewBox="0 0 400 150" class="architecture-svg"><path d="M70 75 L90 75" marker-end="url(#arrow)"/><path d="M190 75 L210 75" marker-end="url(#arrow)"/><rect x="10" y="65" width="60" height="20" class="svg-node-user"/><text x="40" y="78" class="svg-text" text-anchor="middle">Gradio UI</text><rect x="90" y="45" width="100" height="60" class="svg-node-compute"/><text x="140" y="58" class="svg-text-bold" text-anchor="middle">FastAPI Backend</text><text x="140" y="70" text-anchor="middle"><tspan class="svg-text-small" x="140">on GCE VM with:</tspan><tspan class="svg-text" x="140" dy="12">LangChain Agent</tspan><tspan class="svg-text" x="140" dy="12">Self-Hosted LLM</tspan></text><text x="215" y="25" class="svg-text-bold">GCP Services</text><rect x="215" y="30" width="120" height="20" class="svg-node-service"/><text x="275" y="43" class="svg-text" text-anchor="middle">Firestore (CRUD)</text><rect x="215" y="60" width="120" height="20" class="svg-node-service"/><text x="275" y="73" class="svg-text" text-anchor="middle">Cloud Logging (Query)</text><rect x="215" y="90" width="120" height="20" class="svg-node-storage"/><text x="275" y="103" class="svg-text" text-anchor="middle">GCS (.tfstate)</text><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker></defs></svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
+                            <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Security & Cost Optimization</h4>
+                        <ul>
+                            <li><strong>Security Posture:</strong> Access to the Terraform state file was secured by creating a dedicated GCP Service Account with only the `storage.objects.get` permission on the specific `.tfstate` object, adhering to the principle of least privilege.</li>
+                            <li><strong>Cost Optimization:</strong> Using a self-hosted open-source LLM on a preemptible GCE instance significantly reduced operational costs compared to using a proprietary, per-token API like GPT-4, making the tool effectively free for internal use.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Testing Strategy</h4>
+                        <ul>
+                            <li><strong>Unit Testing:</strong> The FastAPI backend logic, including the parsing of natural language queries, was validated using `pytest` to ensure predictable responses.</li>
+                            <li><strong>Integration Testing:</strong> A dedicated test script was created to verify the agent's connection and functional interaction with live GCP APIs (Logging, Firestore) in a non-production environment.</li>
+                        </ul>
+                        <a href="https://github.com/eman-cickusic/Intelligent-Cloud-Operations-Agent-LangChain-GCP" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END PROJECT 1 CONTENT -->
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
