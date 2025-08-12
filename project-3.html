@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Touch CI/CD Pipeline | Eman Čičkušić</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">Eman Čičkušić</div>
+            <ul>
+                <li><a href="index.html#projects">&larr; Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="case-study-container">
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Zero-Touch CI/CD Pipeline</h2>
+                    <div class="project-tags"><span>GitHub Actions</span><span>Terraform</span><span>Docker</span><span>Cloud Run</span></div>
+                </div>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>Manual deployments are slow, error-prone, and unscalable. This project aimed to create a fully automated CI/CD pipeline to achieve zero-touch build, test, and deployment of a containerized application to a serverless platform.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg width="100%" viewBox="0 0 400 150" class="architecture-svg"><path d="M75 45 L95 45" marker-end="url(#arrow)"/><path d="M195 45 L215 45" marker-end="url(#arrow)"/><path d="M315 45 L335 45" marker-end="url(#arrow)"/><rect x="10" y="35" width="65" height="20" class="svg-node-user"/><text x="42.5" y="48" class="svg-text" text-anchor="middle">Developer</text><rect x="95" y="35" width="100" height="20" class="svg-node-compute"/><text x="145" y="48" class="svg-text" text-anchor="middle">GitHub Actions CI</text><text x="145" y="30" class="svg-text-small" text-anchor="middle">(Build, Test, Push Image)</text><rect x="215" y="35" width="100" height="20" class="svg-node-storage"/><text x="265" y="48" class="svg-text" text-anchor="middle">Artifact Registry</text><rect x="95" y="85" width="100" height="40" class="svg-node-compute"/><text text-anchor="middle" x="145" y="98" class="svg-text">GitHub Actions CD</text><text text-anchor="middle" x="145" y="112" class="svg-text-small">(Terraform Apply)</text><path d="M195 105 L335 105 L335 55" marker-end="url(#arrow)"/><rect x="335" y="35" width="60" height="20" class="svg-node-service"/><text text-anchor="middle" x="365" y="48" class="svg-text">Cloud Run</text><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker></defs></svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature. This eliminated Kubernetes management overhead and provided "scale-to-zero" capability, making it highly cost-effective.</li>
+                            <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from manual steps taking 30+ minutes to an average, zero-touch execution time of <strong>4 minutes and 15 seconds</strong> from `git push` to live deployment.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Security & Cost Optimization</h4>
+                        <ul>
+                            <li><strong>Security Posture:</strong> The pipeline was secured using Workload Identity Federation, which allows GitHub Actions to securely impersonate a GCP service account with short-lived credentials, completely avoiding static, long-lived keys.</li>
+                            <li><strong>Cost Optimization:</strong> Cloud Run's "scale-to-zero" feature means no charges are incurred when the application is not receiving requests. The use of Artifact Registry for storing images is also more cost-effective than third-party registries for intra-GCP traffic.</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Testing Strategy</h4>
+                        <ul>
+                            <li><strong>CI Stage:</strong> The pipeline integrates `pytest` for unit tests and a linter (`flake8`) to enforce code quality, failing the build if checks do not pass.</li>
+                            <li><strong>Infrastructure Validation:</strong> `terraform validate` and `tflint` are used to check syntax and best practices. A `terraform plan` is posted as a pull request comment for mandatory peer review before any infrastructure changes can be merged and applied.</li>
+                        </ul>
+                        <a href="https://github.com/eman-cickusic/gcp-cicd-demo" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
