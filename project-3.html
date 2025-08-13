@@ -33,7 +33,67 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
-                        <svg width="100%" viewBox="0 0 400 150" class="architecture-svg"><path d="M75 45 L95 45" marker-end="url(#arrow)"/><path d="M195 45 L215 45" marker-end="url(#arrow)"/><path d="M315 45 L335 45" marker-end="url(#arrow)"/><rect x="10" y="35" width="65" height="20" class="svg-node-user"/><text x="42.5" y="48" class="svg-text" text-anchor="middle">Developer</text><rect x="95" y="35" width="100" height="20" class="svg-node-compute"/><text x="145" y="48" class="svg-text" text-anchor="middle">GitHub Actions CI</text><text x="145" y="30" class="svg-text-small" text-anchor="middle">(Build, Test, Push Image)</text><rect x="215" y="35" width="100" height="20" class="svg-node-storage"/><text x="265" y="48" class="svg-text" text-anchor="middle">Artifact Registry</text><rect x="95" y="85" width="100" height="40" class="svg-node-compute"/><text text-anchor="middle" x="145" y="98" class="svg-text">GitHub Actions CD</text><text text-anchor="middle" x="145" y="112" class="svg-text-small">(Terraform Apply)</text><path d="M195 105 L335 105 L335 55" marker-end="url(#arrow)"/><rect x="335" y="35" width="60" height="20" class="svg-node-service"/><text text-anchor="middle" x="365" y="48" class="svg-text">Cloud Run</text><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker></defs></svg>
+                        <svg viewBox="0 0 400 250" class="architecture-svg">
+                            <defs>
+                                <marker id="arrow-marker-main" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                                <marker id="arrow-marker-secondary" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                            </defs>
+
+                            <!-- Developer Push -->
+                            <g transform="translate(40, 40)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path d="M -7.5 -9 L -7.5 9 M 7.5 -9 L 7.5 9 M -9 0 L 9 0" stroke="#545458" stroke-width="1.5" stroke-linecap="round"></path>
+                                <text x="0" y="30" class="diagram-title" text-anchor="middle">Developer</text>
+                                <text x="0" y="42" class="diagram-subtitle" text-anchor="middle">git push</text>
+                            </g>
+
+                            <!-- Arrow to GitHub Actions -->
+                            <path d="M 75 40 L 125 40" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+
+                            <!-- GitHub Actions CI -->
+                            <g transform="translate(175, 40)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path class="diagram-icon" transform="translate(-8, -8) scale(0.03)" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM256 70.7c102.6 0 185.9 83.3 185.9 185.9 0 82.1-53.3 151.8-127.1 176.4-9.3 1.7-12.7-4-12.7-8.9 0-4.4.2-16.1.2-31.7 0 0-51.4 11.1-62.2-19.5 0 0-8.5-21.5-20.6-27.2 0 0-17.1-11.7 1.2-11.5 0 0 18.8 1.3 28.7 19.5 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7A182.2 182.2 0 0 1 256 132c16.2 0 32.4.8 47.9 2.3 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.8 1.9 50.7 12.3 13.4 19.8 30.5 19.8 51.4 0 73.7-44.9 90-87.7 94.8 7.1 6.1 13.6 18.5 13.6 37.2 0 27.2.2 49.1.2 55.9 0 4.9-3.4 10.7-12.8 8.9C109.3 407.8 56 337.9 56 256c0-102.6 83.3-185.9 185.9-185.9z"></path>
+                                <text x="0" y="30" class="diagram-title" text-anchor="middle">GitHub Actions CI</text>
+                                <text x="0" y="42" class="diagram-subtitle" text-anchor="middle">Build, Test, Push</text>
+                            </g>
+                            
+                            <!-- Arrow to Artifact Registry -->
+                            <path d="M 210 40 L 290 40" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary)"></path>
+
+                            <!-- Artifact Registry -->
+                            <g transform="translate(340, 40)">
+                                <rect x="-20" y="-16" width="40" height="32" rx="4" class="diagram-node"></rect>
+                                <path class="diagram-icon" transform="translate(-10, -10) scale(0.8)" d="M12.5 1.25l-10 5v12.5l10 5 10-5V6.25l-10-5zm-7.5 15.44V9.81l7.5 3.75v6.88l-7.5-3.75zm8.75 4.13l-7.5-3.75 7.5-3.75 7.5 3.75-7.5 3.75zm6.25-5.94l-7.5-3.75V5.19l7.5 3.75v6.88z"></path>
+                                <text x="0" y="30" class="diagram-title" text-anchor="middle">Artifact Registry</text>
+                            </g>
+
+                            <!-- Arrow from CI to CD -->
+                            <path d="M 175 60 L 175 120" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+                            
+                            <!-- GitHub Actions CD -->
+                            <g transform="translate(175, 140)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path class="diagram-icon" transform="translate(-8, -8) scale(0.03)" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM256 70.7c102.6 0 185.9 83.3 185.9 185.9 0 82.1-53.3 151.8-127.1 176.4-9.3 1.7-12.7-4-12.7-8.9 0-4.4.2-16.1.2-31.7 0 0-51.4 11.1-62.2-19.5 0 0-8.5-21.5-20.6-27.2 0 0-17.1-11.7 1.2-11.5 0 0 18.8 1.3 28.7 19.5 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7A182.2 182.2 0 0 1 256 132c16.2 0 32.4.8 47.9 2.3 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.8 1.9 50.7 12.3 13.4 19.8 30.5 19.8 51.4 0 73.7-44.9 90-87.7 94.8 7.1 6.1 13.6 18.5 13.6 37.2 0 27.2.2 49.1.2 55.9 0 4.9-3.4 10.7-12.8 8.9C109.3 407.8 56 337.9 56 256c0-102.6 83.3-185.9 185.9-185.9z"></path>
+                                <text x="0" y="30" class="diagram-title" text-anchor="middle">GitHub Actions CD</text>
+                                <text x="0" y="42" class="diagram-subtitle" text-anchor="middle">Terraform Plan & Apply</text>
+                            </g>
+
+                            <!-- Arrow to Cloud Run -->
+                            <path d="M 175 160 L 175 200" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+
+                            <!-- Cloud Run -->
+                            <g transform="translate(175, 220)">
+                                <rect x="-20" y="-16" width="40" height="32" rx="4" class="diagram-node"></rect>
+                                <path class="diagram-icon" transform="translate(-10, -11) scale(0.85)" d="M12 2L6 5v2.35c0 3.55 2.54 6.85 6 7.65 3.46-.8 6-4.1 6-7.65V5l-6-3zm-1.01 12.22L7.42 12l1.04-1.04 2.53 2.53 4.58-4.58 1.04 1.05-5.62 5.62z"></path>
+                                <text x="0" y="30" class="diagram-title" text-anchor="middle">Cloud Run</text>
+                                <text x="0" y="42" class="diagram-subtitle" text-anchor="middle">Deployed Service</text>
+                            </g>
+                        </svg>
                     </div>
                     <div class="case-study-section">
                         <h4>Technical Decisions & Outcomes</h4>
