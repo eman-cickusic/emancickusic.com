@@ -1,124 +1,57 @@
-<!-- project-1.html (DEFINITIVELY CORRECTED & COMPLETE) -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5f5f7">
-    <meta name="google" content="notranslate">
-    <title>Intelligent Cloud Operations Agent | Eman Čičkušić</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-brand">Eman Čičkušić</div>
-            <ul>
-                <li><a href="index.html#projects">&larr; Back to Projects</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- In project-1.html, REPLACE the SVG block -->
+<svg viewBox="0 0 400 230" class="architecture-svg">
+    <defs>
+        <marker id="arrow-marker-main" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+            <path d="M 0 0 L 10 5 L 0 10 z"></path>
+        </marker>
+    </defs>
 
-    <main id="main-content">
-        <div class="case-study-container">
-            <div class="case-study-content">
-                <div class="modal-header">
-                    <h2>Intelligent Cloud Operations Agent</h2>
-                    <div class="project-tags"><span>LangChain</span><span>Python</span><span>Terraform</span><span>FastAPI</span></div>
-                </div>
-                <div class="modal-body">
-                    <div class="case-study-section">
-                        <h4>Problem Statement</h4>
-                        <p>Cloud operations teams rely on manual queries for routine diagnostics. This project aimed to create an AI agent to automate these tasks using natural language, providing instant Infrastructure-as-Code (IaC) awareness.</p>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 230" class="architecture-svg">
-                            <defs>
-                                <marker id="arrow-marker-main" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                            </defs>
-                        
-                            <!-- User Interface -->
-                            <g transform="translate(60, 115)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <path class="diagram-icon" transform="translate(-35, -10) scale(0.8)" d="M4,4H20a2,2,0,0,1,2,2V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4ZM4,8V18H20V8H4Z"></path>
-                                <text x="5" y="0" class="diagram-title">User Interface</text>
-                                <text x="5" y="12" class="diagram-subtitle">(Gradio)</text>
-                            </g>
-                            
-                            <!-- Arrow to Backend -->
-                            <path d="M 110 115 L 140 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
-                        
-                            <!-- Backend -->
-                            <g transform="translate(185, 115)">
-                                <rect x="-35" y="-50" width="70" height="100" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-35" class="diagram-title">FastAPI Backend</text>
-                                <text text-anchor="middle" y="-23" class="diagram-subtitle">(on GCE VM)</text>
-                                
-                                <rect x="-25" y="-10" width="50" height="30" rx="2" fill="#f9f9fb"></rect>
-                                <text text-anchor="middle" y="3" class="diagram-subtitle" font-size="9px">LangChain</text>
-                                <text text-anchor="middle" y="13" class="diagram-subtitle" font-size="9px">Agent</text>
-                        
-                                <rect x="-25" y="25" width="50" height="25" rx="2" fill="#f9f9fb"></rect>
-                                <text text-anchor="middle" y="42" class="diagram-subtitle" font-size="9px">Self-Hosted LLM</text>
-                            </g>
-                        
-                            <!-- Arrows to GCP Services -->
-                            <path d="M 225 80 L 275 80" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
-                            <path d="M 225 115 L 275 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
-                            <path d="M 225 150 L 275 150" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
-                        
-                            <!-- GCP Services -->
-                            <g transform="translate(325, 80)">
-                                <rect x="-40" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Storage</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">Read State</text>
-                            </g>
-                            
-                            <g transform="translate(325, 115)">
-                                <rect x="-40" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Firestore</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">CRUD</text>
-                            </g>
-                        
-                            <g transform="translate(325, 150)">
-                                <rect x="-40" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Logging</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">Query</text>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Technical Decisions & Outcomes</h4>
-                        <ul>
-                            <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
-                            <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
-                        </ul>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Security & Cost Optimization</h4>
-                        <ul>
-                            <li><strong>Security Posture:</strong> Access to the Terraform state file was secured by creating a dedicated GCP Service Account with only the `storage.objects.get` permission on the specific `.tfstate` object, adhering to the principle of least privilege.</li>
-                            <li><strong>Cost Optimization:</strong> Using a self-hosted open-source LLM on a preemptible GCE instance significantly reduced operational costs compared to using a proprietary, per-token API like GPT-4, making the tool effectively free for internal use.</li>
-                        </ul>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Testing Strategy</h4>
-                        <ul>
-                            <li><strong>Unit Testing:</strong> The FastAPI backend logic, including the parsing of natural language queries, was validated using `pytest` to ensure predictable responses.</li>
-                            <li><strong>Integration Testing:</strong> A dedicated test script was created to verify the agent's connection and functional interaction with live GCP APIs (Logging, Firestore) in a non-production environment.</li>
-                        </ul>
-                        <a href="https://github.com/eman-cickusic/Intelligent-Cloud-Operations-Agent-LangChain-GCP" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <!-- User Interface -->
+    <g transform="translate(60, 115)">
+        <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+        <path class="diagram-icon" transform="translate(-35, -10) scale(0.8)" d="M4,4H20a2,2,0,0,1,2,2V18a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4ZM4,8V18H20V8H4Z"></path>
+        <text x="8" y="0" class="diagram-title">User Interface</text>
+        <text x="8" y="12" class="diagram-subtitle">(Gradio)</text>
+    </g>
+    
+    <!-- Arrow to Backend -->
+    <path d="M 110 115 L 140 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+
+    <!-- Backend -->
+    <g transform="translate(185, 115)">
+        <rect x="-40" y="-50" width="80" height="100" rx="4" class="diagram-node"></rect>
+        <text text-anchor="middle" y="-35" class="diagram-title">FastAPI Backend</text>
+        <text text-anchor="middle" y="-23" class="diagram-subtitle">(on GCE VM)</text>
+        
+        <rect x="-30" y="-10" width="60" height="30" rx="2" fill="#f9f9fb"></rect>
+        <text text-anchor="middle" y="3" class="diagram-subtitle" font-size="9px">LangChain</text>
+        <text text-anchor="middle" y="13" class="diagram-subtitle" font-size="9px">Agent</text>
+
+        <rect x="-30" y="25" width="60" height="25" rx="2" fill="#f9f9fb"></rect>
+        <text text-anchor="middle" y="42" class="diagram-subtitle" font-size="9px">Self-Hosted LLM</text>
+    </g>
+
+    <!-- Arrows to GCP Services -->
+    <path d="M 230 80 L 275 80" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+    <path d="M 230 115 L 275 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+    <path d="M 230 150 L 275 150" class="diagram-arrow-main" marker-end="url(#arrow-marker-main)"></path>
+
+    <!-- GCP Services -->
+    <g transform="translate(325, 80)">
+        <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+        <text text-anchor="middle" y="0" class="diagram-title">Cloud Storage</text>
+        <text text-anchor="middle" y="12" class="diagram-subtitle">Read State</text>
+    </g>
+    
+    <g transform="translate(325, 115)">
+        <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+        <text text-anchor="middle" y="0" class="diagram-title">Firestore</text>
+        <text text-anchor="middle" y="12" class="diagram-subtitle">CRUD</text>
+    </g>
+
+    <g transform="translate(325, 150)">
+        <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+        <text text-anchor="middle" y="0" class="diagram-title">Cloud Logging</text>
+        <text text-anchor="middle" y="12" class="diagram-subtitle">Query</text>
+    </g>
+</svg>
