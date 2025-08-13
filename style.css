@@ -244,27 +244,59 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 .case-study-section li { margin-bottom: 8px; }
 .case-study-section .cta-button { margin-top: 16px; }
 
-/* 9. SVG Diagram & Code Block Styles */
+
+/* 9. ELITE SVG Diagram & Code Block Styles */
 .architecture-svg {
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     width: 100%;
-    margin-top: 16px;
-    padding: 16px;
+    margin: 24px 0;
+    padding: 24px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
 }
-.svg-text, .svg-text-bold, .svg-text-small { font-family: 'Inter', sans-serif; }
-.svg-text{ font-size: 10px; fill: #333; }
-.svg-text-bold { font-size: 10px; font-weight: 600; fill: #111; }
-.svg-text-small { font-size: 8px; fill: #555; }
-.svg-node-user { fill: #cce5ff; stroke: #99c2ff; }
-.svg-node-compute { fill: #fff0c1; stroke: #ffe081; }
-.svg-node-canary { fill: #d4edda; stroke: #b8dfc1; }
-.svg-node-service { fill: #e2d9f3; stroke: #cbafe1; }
-.svg-node-storage { fill: #f8d7da; stroke: #f5b7bb; }
-.svg-cluster { fill: #f0f0f0; stroke: #ccc; stroke-width: 0.5; }
-.architecture-svg path { stroke: #333; stroke-width: 1; fill: none; }
+/* Typography Hierarchy */
+.diagram-title {
+    font-size: 12px;
+    font-weight: 600;
+    fill: var(--text-color);
+}
+.diagram-subtitle {
+    font-size: 10px;
+    fill: var(--text-secondary);
+}
+.diagram-label {
+    font-size: 11px;
+    fill: var(--text-secondary);
+}
+/* Node & Component Styles */
+.diagram-node {
+    fill: #ffffff;
+    stroke: var(--border-color);
+    stroke-width: 1px;
+}
+.diagram-node-cluster {
+    fill: #f9f9fb; /* Slightly off-white */
+    stroke: var(--border-color);
+    stroke-dasharray: 4 4;
+}
+/* Arrow & Path Styles */
+.diagram-arrow-main, .diagram-arrow-main path {
+    stroke: var(--primary-color);
+    stroke-width: 1.5px;
+    fill: var(--primary-color);
+}
+.diagram-arrow-secondary, .diagram-arrow-secondary path {
+    stroke: var(--border-color);
+    stroke-width: 1px;
+    fill: var(--border-color);
+}
+/* Icon styling */
+.diagram-icon {
+    fill: var(--text-color);
+}
+
 
 .case-study-section pre {
     background-color: var(--code-bg-color);
