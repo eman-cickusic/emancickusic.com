@@ -1,4 +1,4 @@
-/* style.css (Final Version) */
+/* style.css (DEFINITIVE & MERGED) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -33,7 +33,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(245, 247, 0.8);
+    background: rgba(245, 245, 247, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid transparent;
@@ -79,7 +79,7 @@ main { padding-top: 64px; }
     font-weight: 600;
     margin-bottom: 16px;
     text-align: center;
-    letter-spacing: -1.5px; /* ELITE: Tighter letter-spacing */
+    letter-spacing: -1.5px;
 }
 .section-subtitle {
     text-align: center;
@@ -97,9 +97,9 @@ main { padding-top: 64px; }
 .hero h1 {
     font-size: 3.8rem;
     font-weight: 700;
-    letter-spacing: -2px; /* ELITE: Impactful, tight letter-spacing */
+    letter-spacing: -2px;
     margin-bottom: 16px;
-    line-height: 1.15; /* ELITE: Tighter line-height for headings */
+    line-height: 1.15;
 }
 .hero p {
     font-size: 1.25rem;
@@ -140,20 +140,20 @@ main { padding-top: 64px; }
     border: 1px solid var(--border-color);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* ELITE: Smooth transitions for all properties */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* ELITE: Deeper, softer shadow */
-    border-color: rgba(0, 113, 227, 0.4); /* ELITE: Subtle primary color glow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 113, 227, 0.4);
 }
 .project-card h3 { 
     font-size: 1.4rem; 
     margin-bottom: 8px; 
-    transition: color 0.3s ease; /* ELITE: Add transition for color change */
+    transition: color 0.3s ease;
 }
 .project-card:hover h3 {
-    color: var(--primary-color); /* ELITE: Title becomes primary color on hover */
+    color: var(--primary-color);
 }
 .project-card p {
     color: var(--text-secondary);
@@ -183,10 +183,10 @@ main { padding-top: 64px; }
 }
 .project-link .arrow {
     display: inline-block;
-    transition: transform 0.2s ease-in-out, color 0.3s ease; /* ELITE: Add transition */
+    transition: transform 0.2s ease-in-out, color 0.3s ease;
 }
 .project-card:hover .project-link .arrow {
-    transform: translateX(6px); /* ELITE: Arrow moves slightly further */
+    transform: translateX(6px);
     color: var(--primary-color);
 }
 
@@ -252,7 +252,7 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 }
 .case-study-section p, .case-study-section li { 
     color: var(--text-secondary); 
-    line-height: 1.75; /* ELITE: More generous line height for readability */
+    line-height: 1.75;
 }
 .case-study-section ul { list-style-type: '✓ '; padding-left: 24px; }
 .case-study-section li { margin-bottom: 8px; }
@@ -270,7 +270,6 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     font-family: 'Inter', sans-serif;
 }
-/* Typography Hierarchy */
 .diagram-title {
     font-size: 12px;
     font-weight: 600;
@@ -284,24 +283,22 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
     font-size: 11px;
     fill: var(--text-secondary);
 }
-/* Node & Component Styles */
 .diagram-node {
     fill: #ffffff;
     stroke: var(--border-color);
     stroke-width: 1px;
-    transition: all 0.2s ease-in-out; /* ELITE: Enable transitions for hover */
+    transition: all 0.2s ease-in-out;
 }
 .diagram-node:hover {
-    stroke: var(--primary-color); /* ELITE: Highlight on hover */
+    stroke: var(--primary-color);
     stroke-width: 1.5px;
-    transform: scale(1.03); /* ELITE: Subtle scale effect */
+    transform: scale(1.03);
 }
 .diagram-node-cluster {
-    fill: #f9f9fb; /* Slightly off-white */
+    fill: #f9f9fb;
     stroke: var(--border-color);
     stroke-dasharray: 4 4;
 }
-/* Arrow & Path Styles */
 .diagram-arrow-main, .diagram-arrow-main path {
     stroke: var(--primary-color);
     stroke-width: 1.5px;
@@ -312,11 +309,9 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
     stroke-width: 1px;
     fill: var(--border-color);
 }
-/* Icon styling */
 .diagram-icon {
     fill: var(--text-color);
 }
-
 
 .case-study-section pre {
     background-color: var(--code-bg-color);
@@ -355,18 +350,12 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
     }
 }
 
-/*
-========================================
-ELITE ACCESSIBILITY & FOCUS STYLING
-========================================
-*/
-/* Remove the default outline on mouse-clicks for non-input elements */
+/* 12. ELITE ACCESSIBILITY & FOCUS STYLING */
 a:focus, button:focus, [tabindex]:focus {
-    outline: none !important; /* Use !important to override any stubborn defaults */
+    outline: none !important;
 }
-/* Apply a clean, custom focus ring ONLY when a user is navigating with a keyboard */
 :focus-visible {
-    outline: 2px solid rgba(0, 113, 227, 0.6) !important; /* Use primary color with slight transparency */
-    outline-offset: 3px; /* Gives the ring some breathing room */
-    border-radius: 4px; /* Matches the soft corners of your design */
+    outline: 2px solid rgba(0, 113, 227, 0.6) !important;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
