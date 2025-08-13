@@ -1,3 +1,5 @@
+/* style.css (Final Version) */
+
 /* 1. Global Styles & Variables */
 :root {
     --background-color: #f5f5f7;
@@ -352,17 +354,19 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/*
+========================================
+ELITE ACCESSIBILITY & FOCUS STYLING
+========================================
+*/
 /* Remove the default outline on mouse-clicks for non-input elements */
 a:focus, button:focus, [tabindex]:focus {
-    outline: none;
+    outline: none !important; /* Use !important to override any stubborn defaults */
 }
-
-/* 
-  Apply a clean, custom focus ring ONLY when a user is navigating with a keyboard (or on form elements). 
-  This is the professional way to handle focus states without cluttering the UI for mouse users.
-*/
+/* Apply a clean, custom focus ring ONLY when a user is navigating with a keyboard */
 :focus-visible {
-    outline: 2px solid rgba(0, 113, 227, 0.6); /* Use primary color with slight transparency */
+    outline: 2px solid rgba(0, 113, 227, 0.6) !important; /* Use primary color with slight transparency */
     outline-offset: 3px; /* Gives the ring some breathing room */
     border-radius: 4px; /* Matches the soft corners of your design */
 }
