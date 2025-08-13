@@ -1,4 +1,4 @@
-/* style.css (DEFINITIVE & MERGED) */
+/* style.css (MASTER VERSION) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -190,7 +190,6 @@ main { padding-top: 64px; }
     color: var(--primary-color);
 }
 
-
 /* 6. Experience Section */
 #experience { background-color: var(--background-color); }
 .experience-grid {
@@ -232,7 +231,6 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 .footer-bottom { margin-top: 64px; color: var(--text-secondary); font-size: 0.9rem; }
 .colophon { font-size: 0.8rem; margin-top: 16px; }
 
-
 /* 8. Case Study Page Styles */
 .case-study-container {
     max-width: 800px;
@@ -258,8 +256,7 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 .case-study-section li { margin-bottom: 8px; }
 .case-study-section .cta-button { margin-top: 16px; }
 
-
-/* 9. ELITE SVG Diagram & Code Block Styles - with Interactive States */
+/* 9. ELITE SVG Diagram & Code Block Styles */
 .architecture-svg {
     background-color: var(--secondary-color);
     border: 1px solid var(--border-color);
