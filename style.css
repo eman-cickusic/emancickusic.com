@@ -1,4 +1,4 @@
-/* style.css (DEFINITIVE FIX v3 - All Styles Included) */
+/* style.css (DEFINITIVE FINAL VERSION - ALL STYLES INCLUDED) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -98,7 +98,6 @@ main { padding-top: 64px; }
 /* 4. Hero Section */
 .hero { text-align: center; padding: 64px 24px; }
 .hero-content { max-width: 800px; margin: 0 auto; }
-/* The H1 now only handles font styles and layout */
 .hero h1 {
     font-size: 3.8rem;
     font-weight: 700;
@@ -107,7 +106,6 @@ main { padding-top: 64px; }
     line-height: 1.15;
     color: var(--text-color); /* Fallback color */
 }
-/* THE FIX: The new SPAN handles the gradient and animation */
 .hero h1 span {
     background-image: linear-gradient(90deg, 
         var(--primary-color) 0%, 
