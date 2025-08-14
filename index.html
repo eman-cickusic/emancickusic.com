@@ -1,4 +1,4 @@
-<!-- index.html (FINAL & CORRECTED with Modals) -->
+<!-- index.html (FINAL & DEFINITIVELY CORRECTED with Full SVG Code) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,161 +140,276 @@
     <!-- HIDDEN PROJECT DATA -->
     <div style="display: none;">
         <div id="project-1-data">
-            <div class="modal-header">
-                <h2>Intelligent Cloud Operations Agent</h2>
-                <div class="project-tags"><span>LangChain</span><span>Python</span><span>Terraform</span><span>FastAPI</span></div>
-            </div>
-            <div class="modal-body">
-                <div class="case-study-section">
-                    <h4>Problem Statement</h4>
-                    <p>Cloud operations teams rely on manual queries for routine diagnostics. This project aimed to create an AI agent to automate these tasks using natural language, providing instant Infrastructure-as-Code (IaC) awareness.</p>
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Intelligent Cloud Operations Agent</h2>
+                    <div class="project-tags"><span>LangChain</span><span>Python</span><span>Terraform</span><span>FastAPI</span></div>
                 </div>
-                <div class="case-study-section">
-                    <h4>Architecture</h4>
-                    <svg viewBox="0 0 400 230" class="architecture-svg"><!-- SVG code from project-1.html --></svg>
-                </div>
-                <div class="case-study-section">
-                    <h4>Technical Decisions & Outcomes</h4>
-                    <ul>
-                        <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
-                        <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Security & Cost Optimization</h4>
-                    <ul>
-                        <li><strong>Security Posture:</strong> Access to the Terraform state file was secured by creating a dedicated GCP Service Account with only the `storage.objects.get` permission on the specific `.tfstate` object, adhering to the principle of least privilege.</li>
-                        <li><strong>Cost Optimization:</strong> Using a self-hosted open-source LLM on a preemptible GCE instance significantly reduced operational costs compared to using a proprietary, per-token API like GPT-4, making the tool effectively free for internal use.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Testing Strategy</h4>
-                    <ul>
-                        <li><strong>Unit Testing:</strong> The FastAPI backend logic, including the parsing of natural language queries, was validated using `pytest` to ensure predictable responses.</li>
-                        <li><strong>Integration Testing:</strong> A dedicated test script was created to verify the agent's connection and functional interaction with live GCP APIs (Logging, Firestore) in a non-production environment.</li>
-                    </ul>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>Cloud operations teams rely on manual queries for routine diagnostics. This project aimed to create an AI agent to automate these tasks using natural language, providing instant Infrastructure-as-Code (IaC) awareness.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg viewBox="0 0 400 230" class="architecture-svg">
+                            <defs>
+                                <marker id="arrow-marker-main-p1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                            </defs>
+                            <g transform="translate(60, 115)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="0" class="diagram-title">User Interface</text>
+                                <text text-anchor="middle" y="12" class="diagram-subtitle">(Gradio)</text>
+                            </g>
+                            <path d="M 110 115 L 140 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
+                            <g transform="translate(195, 115)">
+                                <rect x="-50" y="-55" width="100" height="110" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-40" class="diagram-title">FastAPI Backend</text>
+                                <text text-anchor="middle" y="-28" class="diagram-subtitle">(on GCE VM)</text>
+                                <rect x="-40" y="-15" width="80" height="35" rx="2" fill="#f9f9fb"></rect>
+                                <text text-anchor="middle" y="-2" class="diagram-subtitle" font-size="9px">LangChain</text>
+                                <text text-anchor="middle" y="8" class="diagram-subtitle" font-size="9px">Agent</text>
+                                <rect x="-40" y="25" width="80" height="25" rx="2" fill="#f9f9fb"></rect>
+                                <text text-anchor="middle" y="42" class="diagram-subtitle" font-size="9px">Self-Hosted LLM</text>
+                            </g>
+                            <path d="M 250 85 L 285 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
+                            <path d="M 250 115 L 285 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
+                            <path d="M 250 145 L 285 170" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
+                            <g transform="translate(330, 60)">
+                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Storage</text>
+                                <text text-anchor="middle" y="12" class="diagram-subtitle">Read State</text>
+                            </g>
+                            <g transform="translate(330, 115)">
+                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="0" class="diagram-title">Firestore</text>
+                                <text text-anchor="middle" y="12" class="diagram-subtitle">CRUD</text>
+                            </g>
+                            <g transform="translate(330, 170)">
+                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Logging</text>
+                                <text text-anchor="middle" y="12" class="diagram-subtitle">Query</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
+                            <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
+                        </ul>
+                    </div>
                     <a href="https://github.com/eman-cickusic/Intelligent-Cloud-Operations-Agent-LangChain-GCP" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
             </div>
         </div>
         <div id="project-2-data">
-            <div class="modal-header">
-                <h2>Real-Time Serverless Data Pipeline</h2>
-                <div class="project-tags"><span>Pub/Sub</span><span>Cloud Functions</span><span>BigQuery</span><span>Python</span></div>
-            </div>
-            <div class="modal-body">
-                <div class="case-study-section">
-                    <h4>Problem Statement</h4>
-                    <p>IoT devices generate high-volume data streams that require immediate ingestion, validation, and analysis. This project's goal was to build a highly scalable, low-latency, and cost-effective serverless pipeline to handle this workflow.</p>
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Real-Time Serverless Data Pipeline</h2>
+                    <div class="project-tags"><span>Pub/Sub</span><span>Cloud Functions</span><span>BigQuery</span><span>Python</span></div>
                 </div>
-                <div class="case-study-section">
-                    <h4>Architecture</h4>
-                    <svg viewBox="0 0 400 230" class="architecture-svg"><!-- SVG code from project-2.html --></svg>
-                </div>
-                <div class="case-study-section">
-                    <h4>Technical Decisions & Outcomes</h4>
-                    <ul>
-                        <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like Cloud Run.</li>
-                        <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>, all while operating within GCP's zero-cost free tier for the expected data volume.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Security & Cost Optimization</h4>
-                    <ul>
-                        <li><strong>Security Posture:</strong> The Cloud Function was assigned a dedicated, non-default service account with the minimum required roles (`roles/pubsub.publisher`, `roles/bigquery.dataEditor`) to write to the downstream services, preventing privilege escalation.</li>
-                        <li><strong>Cost Optimization:</strong> The entire architecture is serverless, leveraging a "pay-per-use" model. This means zero cost when idle and automatic scaling during traffic spikes, making it vastly more cost-effective than a provisioned-server solution.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Testing Strategy</h4>
-                    <ul>
-                        <li><strong>Unit Testing:</strong> The core Python validation logic within the Cloud Function was unit-tested with `pytest`, using mock data to cover edge cases like malformed payloads and invalid sensor readings.</li>
-                        <li><strong>End-to-End Testing:</strong> A deployment script publishes a test message to the initial Pub/Sub topic and polls the target BigQuery table to confirm the entire pipeline completes successfully within latency targets.</li>
-                    </ul>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>IoT devices generate high-volume data streams that require immediate ingestion, validation, and analysis. This project's goal was to build a highly scalable, low-latency, and cost-effective serverless pipeline to handle this workflow.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg viewBox="0 0 400 230" class="architecture-svg">
+                            <defs>
+                                <marker id="arrow-marker-main-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                                <marker id="arrow-marker-secondary-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                            </defs>
+                            <g transform="translate(50, 70)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-5" class="diagram-title">IoT Devices</text>
+                                <text text-anchor="middle" y="10" class="diagram-subtitle">Data Source</text>
+                            </g>
+                            <path d="M 100 70 L 130 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
+                            <g transform="translate(175, 70)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text>
+                                <text text-anchor="middle" y="10" class="diagram-subtitle">Ingestion</text>
+                            </g>
+                            <path d="M 225 70 L 255 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
+                            <g transform="translate(300, 70)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-5" class="diagram-title">Cloud Function</text>
+                                <text text-anchor="middle" y="10" class="diagram-subtitle">Validation</text>
+                            </g>
+                            <path d="M 300 95 L 300 125" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
+                            <g transform="translate(300, 150)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-5" class="diagram-title">BigQuery</text>
+                                <text text-anchor="middle" y="10" class="diagram-subtitle">Analysis</text>
+                            </g>
+                            <path d="M 175 95 L 175 125" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p2)"></path>
+                            <g transform="translate(175, 150)">
+                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text>
+                                <text text-anchor="middle" y="10" class="diagram-subtitle">Alerts Topic</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like Cloud Run.</li>
+                            <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>.</li>
+                        </ul>
+                    </div>
                     <a href="https://github.com/eman-cickusic/Real-Time-Serverless-Data-Pipeline-on-Google-Cloud" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
             </div>
         </div>
         <div id="project-3-data">
-            <div class="modal-header">
-                <h2>Zero-Touch CI/CD Pipeline</h2>
-                <div class="project-tags"><span>GitHub Actions</span><span>Terraform</span><span>Docker</span><span>Cloud Run</span></div>
-            </div>
-            <div class="modal-body">
-                <div class="case-study-section">
-                    <h4>Problem Statement</h4>
-                    <p>Manual deployments are slow, error-prone, and unscalable. This project aimed to create a fully automated CI/CD pipeline to achieve zero-touch build, test, and deployment of a containerized application to a serverless platform.</p>
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Zero-Touch CI/CD Pipeline</h2>
+                    <div class="project-tags"><span>GitHub Actions</span><span>Terraform</span><span>Docker</span><span>Cloud Run</span></div>
                 </div>
-                <div class="case-study-section">
-                    <h4>Architecture</h4>
-                    <svg viewBox="0 0 400 300" class="architecture-svg"><!-- SVG code from project-3.html --></svg>
-                </div>
-                <div class="case-study-section">
-                    <h4>Technical Decisions & Outcomes</h4>
-                    <ul>
-                        <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature. This eliminated Kubernetes management overhead and provided "scale-to-zero" capability, making it highly cost-effective.</li>
-                        <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from manual steps taking 30+ minutes to an average, zero-touch execution time of <strong>4 minutes and 15 seconds</strong> from `git push` to live deployment.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Security & Cost Optimization</h4>
-                    <ul>
-                        <li><strong>Security Posture:</strong> The pipeline was secured using Workload Identity Federation, which allows GitHub Actions to securely impersonate a GCP service account with short-lived credentials, completely avoiding static, long-lived keys.</li>
-                        <li><strong>Cost Optimization:</strong> Cloud Run's "scale-to-zero" feature means no charges are incurred when the application is not receiving requests. The use of Artifact Registry for storing images is also more cost-effective than third-party registries for intra-GCP traffic.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Testing Strategy</h4>
-                    <ul>
-                        <li><strong>CI Stage:</strong> The pipeline integrates `pytest` for unit tests and a linter (`flake8`) to enforce code quality, failing the build if checks do not pass.</li>
-                        <li><strong>Infrastructure Validation:</strong> `terraform validate` and `tflint` are used to check syntax and best practices. A `terraform plan` is posted as a pull request comment for mandatory peer review before any infrastructure changes can be merged and applied.</li>
-                    </ul>
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>Manual deployments are slow, error-prone, and unscalable. This project aimed to create a fully automated CI/CD pipeline to achieve zero-touch build, test, and deployment of a containerized application to a serverless platform.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg viewBox="0 0 400 300" class="architecture-svg">
+                            <defs>
+                                <marker id="arrow-marker-main-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                                <marker id="arrow-marker-secondary-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                            </defs>
+                            <g transform="translate(60, 60)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path class="diagram-icon" transform="translate(-8, -8.5) scale(0.85)" d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z"></path>
+                                <text x="0" y="32" class="diagram-title" text-anchor="middle">Developer</text>
+                                <text x="0" y="45" class="diagram-subtitle" text-anchor="middle">git push</text>
+                            </g>
+                            <path d="M 95 60 L 145 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
+                            <g transform="translate(195, 60)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path class="diagram-icon" transform="translate(-8.2, -8.2) scale(0.032)" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM256 70.7c102.6 0 185.9 83.3 185.9 185.9 0 82.1-53.3 151.8-127.1 176.4-9.3 1.7-12.7-4-12.7-8.9 0-4.4.2-16.1.2-31.7 0 0-51.4 11.1-62.2-19.5 0 0-8.5-21.5-20.6-27.2 0 0-17.1-11.7 1.2-11.5 0 0 18.8 1.3 28.7 19.5 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7A182.2 182.2 0 0 1 256 132c16.2 0 32.4.8 47.9 2.3 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.8 1.9 50.7 12.3 13.4 19.8 30.5 19.8 51.4 0 73.7-44.9 90-87.7 94.8 7.1 6.1 13.6 18.5 13.6 37.2 0 27.2.2 49.1.2 55.9 0 4.9-3.4 10.7-12.8 8.9C109.3 407.8 56 337.9 56 256c0-102.6 83.3-185.9 185.9-185.9z"></path>
+                                <text x="0" y="32" class="diagram-title" text-anchor="middle">GitHub Actions CI</text>
+                                <text x="0" y="45" class="diagram-subtitle" text-anchor="middle">Build, Test, Push</text>
+                            </g>
+                            <path d="M 230 60 L 285 60" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p3)"></path>
+                            <g transform="translate(340, 60)">
+                                <rect x="-50" y="-16" width="100" height="32" rx="4" class="diagram-node"></rect>
+                                <text x="0" y="5" class="diagram-title" text-anchor="middle">Artifact Registry</text>
+                            </g>
+                            <path d="M 195 110 L 195 150" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
+                            <g transform="translate(195, 170)">
+                                <circle cx="0" cy="0" r="16" class="diagram-node"></circle>
+                                <path class="diagram-icon" transform="translate(-8.2, -8.2) scale(0.032)" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM256 70.7c102.6 0 185.9 83.3 185.9 185.9 0 82.1-53.3 151.8-127.1 176.4-9.3 1.7-12.7-4-12.7-8.9 0-4.4.2-16.1.2-31.7 0 0-51.4 11.1-62.2-19.5 0 0-8.5-21.5-20.6-27.2 0 0-17.1-11.7 1.2-11.5 0 0 18.8 1.3 28.7 19.5 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7A182.2 182.2 0 0 1 256 132c16.2 0 32.4.8 47.9 2.3 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.8 1.9 50.7 12.3 13.4 19.8 30.5 19.8 51.4 0 73.7-44.9 90-87.7 94.8 7.1 6.1 13.6 18.5 13.6 37.2 0 27.2.2 49.1.2 55.9 0 4.9-3.4 10.7-12.8 8.9C109.3 407.8 56 337.9 56 256c0-102.6 83.3-185.9 185.9-185.9z"></path>
+                                <text x="0" y="32" class="diagram-title" text-anchor="middle">GitHub Actions CD</text>
+                                <text x="0" y="45" class="diagram-subtitle" text-anchor="middle">Terraform Plan & Apply</text>
+                            </g>
+                            <path d="M 195 220 L 195 240" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
+                            <g transform="translate(195, 260)">
+                                <rect x="-45" y="-16" width="90" height="32" rx="4" class="diagram-node"></rect>
+                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Run</text>
+                                <text text-anchor="middle" y="12" class="diagram-subtitle">Deployed Service</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Technical Decisions & Outcomes</h4>
+                        <ul>
+                            <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature, which eliminated Kubernetes management overhead.</li>
+                            <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from 30+ minutes to an average execution time of <strong>4 minutes and 15 seconds</strong>.</li>
+                        </ul>
+                    </div>
                     <a href="https://github.com/eman-cickusic/gcp-cicd-demo" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
             </div>
         </div>
         <div id="project-4-data">
-            <div class="modal-header">
-                <h2>Production-Grade Service Mesh</h2>
-                <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
-            </div>
-            <div class="modal-body">
-                <div class="case-study-section">
-                    <h4>Problem Statement</h4>
-                    <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges using advanced cloud-native patterns.</p>
+            <div class="case-study-content">
+                <div class="modal-header">
+                    <h2>Production-Grade Service Mesh</h2>
+                    <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
                 </div>
-                <div class="case-study-section">
-                    <h4>Architecture</h4>
-                    <svg viewBox="0 0 400 240" class="architecture-svg"><!-- SVG code from project-4.html --></svg>
-                </div>
-                <div class="case-study-section">
-                    <h4>Technical Decisions & Outcomes</h4>
-                    <ul>
-                        <li><strong>Architectural Choice:</strong> A canary deployment strategy was chosen over blue/green to demonstrate a more sophisticated, risk-averse release process, enabling production testing with minimal user impact before a full rollout.</li>
-                        <li><strong>Quantifiable Outcome:</strong> The entire GKE cluster and Istio mesh setup was automated with Terraform, reducing deployment time from <strong>over 4 hours</strong> of manual steps to a repeatable, scripted deployment of <strong>under 9 minutes</strong>.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Security & Cost Optimization</h4>
-                    <ul>
-                        <li><strong>Security Posture:</strong> A zero-trust network was enforced using an Istio `AuthorizationPolicy` to deny all traffic by default, with explicit rules only allowing required service-to-service communication. All inter-service traffic is automatically encrypted with mTLS by the mesh.</li>
-                        <li><strong>Cost Optimization:</strong> The GKE cluster was configured with node auto-provisioning and auto-scaling, allowing it to dynamically add or remove nodes based on workload demands, preventing over-provisioning and minimizing costs.</li>
-                    </ul>
-                </div>
-                <div class="case-study-section">
-                    <h4>Zero-Trust Policy Example</h4>
-                    <p>The following Istio `AuthorizationPolicy` denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
-                    <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
+                <div class="modal-body">
+                    <div class="case-study-section">
+                        <h4>Problem Statement</h4>
+                        <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges.</p>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Architecture</h4>
+                        <svg viewBox="0 0 400 240" class="architecture-svg">
+                            <defs>
+                                <marker id="arrow-marker-main-p4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
+                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                                </marker>
+                            </defs>
+                            <rect x="5" y="5" width="390" height="190" rx="8" class="diagram-node-cluster"></rect>
+                            <text x="15" y="22" class="diagram-label">GKE Cluster (Istio Enabled)</text>
+                            <g transform="translate(70, 100)">
+                                <rect x="-40" y="-20" width="80" height="40" rx="4" class="diagram-node"></rect>
+                                <text x="0" y="5" class="diagram-title" text-anchor="middle">Frontend</text>
+                            </g>
+                            <path d="M 115 100 L 145 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path>
+                            <g transform="translate(200, 75)">
+                                <rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect>
+                                <text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v1</text>
+                                <text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(90% Traffic)</text>
+                            </g>
+                            <g transform="translate(200, 125)">
+                                <rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect>
+                                <text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v2</text>
+                                <text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(10% Canary)</text>
+                            </g>
+                            <g transform="translate(335, 100)">
+                                <rect x="-40" y="-60" width="80" height="120" rx="4" fill="#fdfdff"></rect>
+                                <text text-anchor="middle" y="-45" class="diagram-title">Observability</text>
+                                <g transform="translate(0, -15)">
+                                    <rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect>
+                                    <text text-anchor="middle" y="4" class="diagram-subtitle">Monitoring</text>
+                                </g>
+                                <g transform="translate(0, 25)">
+                                    <rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect>
+                                    <text text-anchor="middle" y="4" class="diagram-subtitle">Trace</text>
+                                </g>
+                            </g>
+                            <path d="M 255 100 L 285 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path>
+                            <g transform="translate(200, 220)" text-anchor="middle">
+                                <text class="diagram-label" x="0" y="0">All traffic secured with mTLS</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="case-study-section">
+                        <h4>Zero-Trust Policy Example</h4>
+                        <p>The following Istio `AuthorizationPolicy` denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
+                        <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
-# ... rest of yaml code
+metadata:
+  name: api-service-policy
+spec:
+  selector:
+    matchLabels:
+      app: api-service
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/frontend"]
+    to:
+    - operation:
+        methods: ["GET"]
 </code></pre>
-                </div>
-                <div class="case-study-section">
-                    <h4>Testing Strategy</h4>
-                    <ul>
-                        <li><strong>Infrastructure Testing:</strong> The Terraform configuration was validated using `tflint` for best practices. The entire GKE cluster and Istio installation were deployed to a staging environment first to validate the setup before any production deployment.</li>
-                        <li><strong>Policy Verification:</strong> After applying the `AuthorizationPolicy`, tests were run from a non-whitelisted pod to confirm that access to the `api-service` was correctly denied, explicitly verifying the zero-trust configuration.</li>
-                    </ul>
+                    </div>
                     <a href="https://github.com/eman-cickusic/Installing-Cloud-Service-Mesh-on-Google-Kubernetes-Engine" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
                 </div>
             </div>
