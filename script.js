@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // NEW: Modal Logic
+    // Modal Logic
     const projectCards = document.querySelectorAll('.project-card');
     const modalOverlay = document.getElementById('project-modal-overlay');
     const modalContainer = document.getElementById('project-modal-container');
@@ -27,36 +27,50 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectDataContainer = document.getElementById(`project-${projectNumber}-data`);
             
             if (projectDataContainer) {
-                // Clear previous content
                 modalContainer.innerHTML = '';
-                // Inject new project's HTML
                 modalContainer.appendChild(projectDataContainer.cloneNode(true));
                 
-                // Show the modal with animation
                 modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
             }
         });
     });
 
     const closeModal = () => {
         modalOverlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restore background scroll
+        document.body.style.overflow = '';
     };
 
     closeModalButton.addEventListener('click', closeModal);
     
     modalOverlay.addEventListener('click', (e) => {
-        // Close modal only if clicking on the overlay itself, not the content container
         if (e.target === modalOverlay) {
             closeModal();
         }
     });
 
-    // Add keyboard support for closing the modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
             closeModal();
         }
+    });
+
+    // NEW: Back to Top Button Logic
+    const backToTopButton = document.getElementById('back-to-top-btn');
+
+    window.addEventListener('scroll', () => {
+        // Show button if page is scrolled more than 400px
+        if (window.scrollY > 400) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 });
