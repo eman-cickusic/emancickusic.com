@@ -1,4 +1,4 @@
-/* style.css (DEFINITIVE MASTER VERSION - ALL STYLES INCLUDED) */
+/* style.css (DEFINITIVE FIX v3 - All Styles Included) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -7,7 +7,7 @@
     --primary-color: #0071e3;
     --secondary-color: #ffffff;
     --border-color: #d2d2d7;
-    --text-secondary: #545458; /* AAA compliant color */
+    --text-secondary: #545458;
     --code-bg-color: #f8f9fa;
 }
 
@@ -18,7 +18,7 @@
 }
 
 html, body {
-    height: 100%; /* Ensures the body can fill the viewport for centering */
+    height: 100%;
 }
 
 html { scroll-behavior: smooth; }
@@ -98,14 +98,17 @@ main { padding-top: 64px; }
 /* 4. Hero Section */
 .hero { text-align: center; padding: 64px 24px; }
 .hero-content { max-width: 800px; margin: 0 auto; }
+/* The H1 now only handles font styles and layout */
 .hero h1 {
     font-size: 3.8rem;
     font-weight: 700;
     letter-spacing: -2px;
     margin-bottom: 16px;
     line-height: 1.15;
-    
-    /* DEFINITIVE FIX for Animated Gradient */
+    color: var(--text-color); /* Fallback color */
+}
+/* THE FIX: The new SPAN handles the gradient and animation */
+.hero h1 span {
     background-image: linear-gradient(90deg, 
         var(--primary-color) 0%, 
         var(--text-color) 50%, 
@@ -113,7 +116,7 @@ main { padding-top: 64px; }
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* This is the key fix */
+    -webkit-text-fill-color: transparent;
     animation: moveGradient 5s linear infinite;
 }
 .hero p {
@@ -355,7 +358,7 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 /* 10. Accessibility & Animations */
 .skip-link { position: absolute; top: -999px; left: 0; background: var(--primary-color); color: white; padding: 1rem; z-index: 1002; }
 .skip-link:focus { top: 0; }
-.fade-in, .fade-in-delay-1, .fade-in-delay-2 { animation: fadeInAnimation 1s ease-in-out forwards; opacity: 0; }
+.fade-in { animation: fadeInAnimation 1s ease-in-out forwards; opacity: 0; }
 .fade-in-delay-1 { animation-delay: 0.3s; }
 .fade-in-delay-2 { animation-delay: 0.6s; }
 @keyframes fadeInAnimation { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -528,7 +531,7 @@ a:focus, button:focus, [tabindex]:focus {
     border-bottom-color: var(--primary-color);
 }
 
-/* Keyframe for Animated Gradient */
+/* 17. Animation Keyframes */
 @keyframes moveGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
