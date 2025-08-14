@@ -1,4 +1,4 @@
-/* style.css (MASTER VERSION - REFINED with Modals) */
+/* style.css (MASTER VERSION - REFINED with 404 Styles) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -15,6 +15,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensures the body can fill the viewport for centering */
 }
 
 html { scroll-behavior: smooth; }
@@ -432,4 +436,34 @@ a:focus, button:focus, [tabindex]:focus {
     color: white;
     background: rgba(0,0,0,0.4);
     transform: scale(1.1);
+}
+
+/* 14. Error Page Styles */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 24px;
+}
+
+.error-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -5px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.error-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.error-content p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
 }
