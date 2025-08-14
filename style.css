@@ -1,4 +1,4 @@
-/* style.css (MASTER VERSION - REFINED with Back to Top Button) */
+/* style.css (MASTER VERSION - REFINED with Tech Links) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -504,4 +504,17 @@ a:focus, button:focus, [tabindex]:focus {
 
 #back-to-top-btn:hover {
     background-color: #0056b3; /* A darker shade of the primary color */
+}
+
+/* 16. Tech Link Styles */
+.tech-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 113, 227, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+.tech-link:hover {
+    background-color: rgba(0, 113, 227, 0.08);
+    border-bottom-color: var(--primary-color);
 }
