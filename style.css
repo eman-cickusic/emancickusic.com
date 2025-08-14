@@ -535,3 +535,12 @@ a:focus, button:focus, [tabindex]:focus {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
