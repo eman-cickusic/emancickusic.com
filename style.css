@@ -396,3 +396,66 @@ nav a:hover::after,
 .contact-links a:hover::after {
     transform: scaleX(1);
 }
+/* 19. Exit Intent Prompt Styles */
+.exit-intent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 29, 31, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000; /* Higher than project modal */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 0.4s;
+}
+.exit-intent-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exit-intent-prompt {
+    background: var(--secondary-color);
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px; /* Smaller than project modal */
+    text-align: center;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+.exit-intent-overlay.active .exit-intent-prompt {
+    transform: scale(1);
+}
+.exit-intent-prompt h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.exit-intent-prompt p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+.exit-intent-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.exit-intent-close:hover {
+    opacity: 1;
+}
