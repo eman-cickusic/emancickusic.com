@@ -140,3 +140,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// NEW: Magnetic Buttons Logic
+    const magneticButtons = document.querySelectorAll('.cta-button');
+    const magneticStrength = 0.4; // How much the button "pulls"
+
+    magneticButtons.forEach(button => {
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Apply the magnetic pull transform
+            button.style.transform = `translate(${x * magneticStrength}px, ${y * magneticStrength}px) scale(1.05)`;
+        });
+
+        button.addEventListener('mouseleave', () => {
+            // Reset to the standard hover state
+            button.style.transform = 'translate(0,0) scale(1.05)';
+            // After a short delay, reset completely if the hover is truly gone
+            setTimeout(() => {
+                if (!button.matches(':hover')) {
+                    button.style.transform = 'translate(0,0) scale(1)';
+                }
+            }, 100);
+        });
+    });
+
+});
