@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Modal Logic
-    const projectCardsAll = document.querySelectorAll('.project-card'); // Use a different variable name to avoid conflict
+    // 2. Modal Logic (Variables defined here for global use)
+    const projectCardsAll = document.querySelectorAll('.project-card');
     const modalOverlay = document.getElementById('project-modal-overlay');
     const modalContainer = document.getElementById('project-modal-container');
     const closeModalButton = document.getElementById('modal-close');
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (projectDataContainer) {
                 modalContainer.innerHTML = '';
-                // Clone the content to avoid issues with event listeners
                 modalContainer.appendChild(projectDataContainer.cloneNode(true));
                 
                 modalOverlay.classList.add('active');
@@ -43,11 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModalButton.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
-            closeModal();
-        }
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
             closeModal();
         }
     });
@@ -81,42 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(element);
     });
 
-    // 5. NEW: 3D Tilt Effect for Project Cards
+    // 5. 3D Tilt Effect for Project Cards
     const tiltCards = document.querySelectorAll('.project-card');
-
     tiltCards.forEach(card => {
-        const maxTilt = 15; // Max tilt in degrees
-
+        const maxTilt = 15;
         card.addEventListener('mousemove', (e) => {
-            // This logic is only for the tilt effect, not the click event
             if (e.target.closest('.project-card') !== card) return;
-
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // Mouse X position relative to the card
-            const y = e.clientY - rect.top;  // Mouse Y position relative to the card
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             const width = rect.width;
             const height = rect.height;
-
             const rotateY = (x / width - 0.5) * 2 * maxTilt;
             const rotateX = (0.5 - y / height) * 2 * maxTilt;
-
-            // Apply the tilt transform
-            card.style.transition = 'transform 0.1s ease-out'; // Faster transition while hovering
+            card.style.transition = 'transform 0.1s ease-out';
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-
-            // Update CSS variables for the glare effect
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
         });
-
         card.addEventListener('mouseleave', () => {
-            // Reset the card to its original state
-            card.style.transition = 'transform 0.4s ease-out'; // Slower, smoother transition on mouse out
+            card.style.transition = 'transform 0.4s ease-out';
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
         });
     });
-});
-// NEW: Exit Intent Prompt Logic
+
+    // 6. Exit Intent Prompt Logic
     const exitIntentOverlay = document.getElementById('exit-intent-overlay');
     const exitIntentCloseButton = document.getElementById('exit-intent-close');
     let exitIntentPromptShown = false;
@@ -132,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         exitIntentOverlay.classList.remove('active');
     };
 
-    // Trigger on mouseout of the document body
     document.body.addEventListener('mouseout', (e) => {
-        // If the mouse is leaving the top of the viewport
         if (e.clientY <= 0) {
             showExitIntentPrompt();
         }
@@ -147,10 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add ESC key support for closing the new prompt
+    // 7. Universal Keyboard (ESC key) Support
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && exitIntentOverlay.classList.contains('active')) {
-            closeExitIntentPrompt();
+        if (e.key === 'Escape') {
+            if (modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+            if (exitIntentOverlay.classList.contains('active')) {
+                closeExitIntentPrompt();
+            }
         }
     });
 });
