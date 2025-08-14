@@ -116,3 +116,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// NEW: Exit Intent Prompt Logic
+    const exitIntentOverlay = document.getElementById('exit-intent-overlay');
+    const exitIntentCloseButton = document.getElementById('exit-intent-close');
+    let exitIntentPromptShown = false;
+
+    const showExitIntentPrompt = () => {
+        if (!exitIntentPromptShown && !modalOverlay.classList.contains('active')) {
+            exitIntentOverlay.classList.add('active');
+            exitIntentPromptShown = true;
+        }
+    };
+
+    const closeExitIntentPrompt = () => {
+        exitIntentOverlay.classList.remove('active');
+    };
+
+    // Trigger on mouseout of the document body
+    document.body.addEventListener('mouseout', (e) => {
+        // If the mouse is leaving the top of the viewport
+        if (e.clientY <= 0) {
+            showExitIntentPrompt();
+        }
+    });
+
+    exitIntentCloseButton.addEventListener('click', closeExitIntentPrompt);
+    exitIntentOverlay.addEventListener('click', (e) => {
+        if (e.target === exitIntentOverlay) {
+            closeExitIntentPrompt();
+        }
+    });
+
+    // Add ESC key support for closing the new prompt
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && exitIntentOverlay.classList.contains('active')) {
+            closeExitIntentPrompt();
+        }
+    });
+});
