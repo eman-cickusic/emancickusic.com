@@ -1,4 +1,4 @@
-/* style.css (MASTER VERSION - REFINED) */
+/* style.css (MASTER VERSION - REFINED with Modals) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -27,222 +27,22 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 2. Header & Navigation */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(245, 245, 247, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
-}
-header.scrolled { border-bottom-color: var(--border-color); }
-nav {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 64px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-brand {
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 32px;
-}
-nav a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-nav a:hover { color: var(--primary-color); }
+/* ... (Keep all existing styles from sections 2, 3, 4, 5, 6, 7) ... */
+/* ... I am omitting them here for brevity, but you should keep them in your file ... */
 
-/* 3. Main Content & Sections */
-main { padding-top: 64px; }
-.section-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 96px 24px;
-}
-.section-title {
-    font-size: 2.8rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    text-align: center;
-    letter-spacing: -1.5px;
-}
-.section-subtitle {
-    text-align: center;
-    color: var(--text-secondary);
-    margin-bottom: 64px;
-    font-size: 1.1rem;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 4. Hero Section */
-.hero { text-align: center; padding: 64px 24px; }
-.hero-content { max-width: 800px; margin: 0 auto; }
-.hero h1 {
-    font-size: 3.8rem;
-    font-weight: 700;
-    letter-spacing: -2px;
-    margin-bottom: 16px;
-    line-height: 1.15;
-}
-.hero p {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    max-width: 65ch; /* IMPROVED: Gold standard for readability */
-    margin: 0 auto 24px auto;
-}
-.hero-status { color: var(--text-secondary); margin-bottom: 32px; }
-.hero-status span { font-weight: 600; color: var(--text-color); }
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 32px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-.cta-button:hover {
-    transform: scale(1.05);
-    background-color: #0077ed;
-}
-
-/* 5. Projects Section - with ELITE Micro-interactions */
-#projects { background-color: var(--secondary-color); }
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-}
-.project-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--background-color);
-    padding: 32px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(0, 113, 227, 0.4);
-}
-.project-card h3 { 
-    font-size: 1.4rem; 
-    margin-bottom: 8px; 
-    transition: color 0.3s ease;
-}
-.project-card:hover h3 {
-    color: var(--primary-color);
-}
-.project-card p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    font-size: 1rem;
-    flex-grow: 1;
-    min-height: 96px; /* IMPROVED: Ensures card alignment regardless of tag wrapping */
-}
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-}
-.project-tags span {
-    background: #e8e8ed;
-    color: var(--text-secondary);
-    padding: 4px 12px;
-    border-radius: 24px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.3s ease; /* IMPROVED: Smooth transition for hover effects */
-}
-/* IMPROVED: Adds a subtle, delightful micro-interaction to tags on hover */
-.project-card:hover .project-tags span {
-    background-color: #e0e0e6;
-    transform: translateY(-2px);
-}
-.project-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: auto;
-}
-.project-link .arrow {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out, color 0.3s ease;
-}
-.project-card:hover .project-link .arrow {
-    transform: translateX(6px);
-    color: var(--primary-color);
-}
-
-/* 6. Experience Section */
-#experience { background-color: var(--background-color); }
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 32px;
-}
-.experience-item {
+/* 8. Case Study Page Styles (Now used for Modal Content) */
+.modal-container { /* This is the scrollable content area */
     background: var(--secondary-color);
-    padding: 32px;
-    border: 1px solid var(--border-color);
+    padding: 24px 40px 40px 40px;
     border-radius: 16px;
-    height: 100%;
-    transition: background-color 0.3s ease;
-}
-.experience-item:hover {
-    background-color: #fcfcff;
-}
-.experience-item h3 { font-size: 1.2rem; }
-.experience-company {
-    font-weight: 500;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-}
-.experience-item ul { list-style-position: outside; padding-left: 24px; color: var(--text-secondary); }
-.experience-item li { margin-bottom: 8px; line-height: 1.5; }
-
-/* 7. Footer */
-footer {
-    background-color: var(--secondary-color);
-    text-align: center;
-    padding: 80px 24px;
-    border-top: 1px solid var(--border-color);
-}
-footer h2 { font-size: 2.5rem; margin-bottom: 16px; letter-spacing: -1px; }
-footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px auto; }
-.contact-links a { color: var(--primary-color); text-decoration: none; margin: 0 16px; font-size: 1.1rem; font-weight: 500; }
-.contact-links a:hover { text-decoration: underline; }
-.footer-bottom { margin-top: 64px; color: var(--text-secondary); font-size: 0.9rem; }
-.colophon { font-size: 0.8rem; margin-top: 16px; }
-
-/* 8. Case Study Page Styles */
-.case-study-container {
+    width: 90%;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 80px 24px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
 .modal-header h2 { font-size: 2.5rem; letter-spacing: -0.5px; margin-bottom: 8px; }
 .modal-header .project-tags { margin-bottom: 32px; }
@@ -255,7 +55,6 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
     margin-bottom: 16px;
     display: inline-block;
 }
-/* IMPROVED: Increased line-height for better readability on long text blocks */
 .case-study-section p, .case-study-section li { 
     color: var(--text-secondary); 
     line-height: 1.75;
@@ -264,110 +63,50 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 .case-study-section li { margin-bottom: 8px; }
 .case-study-section .cta-button { margin-top: 16px; }
 
-/* 9. ELITE SVG Diagram & Code Block Styles */
-.architecture-svg {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
+/* ... (Keep all existing styles from sections 9, 10, 11, 12) ... */
+
+
+/* NEW: Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 24px 0;
-    padding: 24px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    font-family: 'Inter', sans-serif;
-}
-.diagram-title {
-    font-size: 12px;
-    font-weight: 600;
-    fill: var(--text-color);
-}
-.diagram-subtitle {
-    font-size: 10px;
-    fill: var(--text-secondary);
-}
-.diagram-label {
-    font-size: 11px;
-    fill: var(--text-secondary);
-}
-.diagram-node {
-    fill: #ffffff;
-    stroke: var(--border-color);
-    stroke-width: 1px;
-    transition: all 0.2s ease-in-out;
-}
-.diagram-node:hover {
-    stroke: var(--primary-color);
-    stroke-width: 1.5px;
-    transform: scale(1.03);
-}
-.diagram-node-cluster {
-    fill: #f9f9fb;
-    stroke: var(--border-color);
-    stroke-dasharray: 4 4;
-}
-.diagram-arrow-main, .diagram-arrow-main path {
-    stroke: var(--primary-color);
-    stroke-width: 1.5px;
-    fill: var(--primary-color);
-}
-.diagram-arrow-secondary, .diagram-arrow-secondary path {
-    stroke: var(--border-color);
-    stroke-width: 1px;
-    fill: var(--border-color);
-}
-.diagram-icon {
-    fill: var(--text-color);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 0.4s;
 }
 
-.case-study-section pre {
-    background-color: var(--code-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 16px;
-    overflow-x: auto;
-    font-family: 'SF Mono', 'Fira Code', 'monospace';
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-top: 16px;
-}
-.case-study-section code { color: var(--text-color); }
-
-/* 10. Accessibility & Animations */
-.skip-link { position: absolute; top: -999px; left: 0; background: var(--primary-color); color: white; padding: 1rem; z-index: 1002; }
-.skip-link:focus { top: 0; }
-.fade-in, .fade-in-delay-1, .fade-in-delay-2 { animation: fadeInAnimation 1s ease-in-out forwards; opacity: 0; }
-.fade-in-delay-1 { animation-delay: 0.3s; }
-.fade-in-delay-2 { animation-delay: 0.6s; }
-@keyframes fadeInAnimation { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-
-/* 11. Responsive Design */
-@media (max-width: 768px) {
-    .nav-brand { display: none; }
-    nav { justify-content: center; }
-    .hero h1 { font-size: 2.8rem; line-height: 1.25; }
-    .hero p { font-size: 1.1rem; }
-    .section-title { font-size: 2.2rem; }
-    .section-container, .case-study-container { padding: 64px 24px; }
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* IMPROVED: Fixes layout for mid-sized screens like tablets and small laptops */
-@media (min-width: 769px) and (max-width: 1199px) {
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.modal-overlay.active .modal-container {
+    transform: scale(1);
 }
 
-@media (min-width: 1200px) {
-    .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.modal-close-button {
+    position: fixed; /* Fixed relative to the viewport */
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2001; /* Ensure it's above the modal content */
+    transition: color 0.3s ease;
 }
 
-/* 12. ELITE ACCESSIBILITY & FOCUS STYLING */
-a:focus, button:focus, [tabindex]:focus {
-    outline: none !important;
-}
-:focus-visible {
-    outline: 2px solid rgba(0, 113, 227, 0.6) !important;
-    outline-offset: 3px;
-    border-radius: 4px;
+.modal-close-button:hover {
+    color: white;
 }
