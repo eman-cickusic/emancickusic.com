@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const header = document.querySelector('header');
     
-    // Add shadow to header on scroll for depth
+    // Header scroll logic...
     if (header) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 10) {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modal Logic
+    // Modal logic...
     const projectCards = document.querySelectorAll('.project-card');
     const modalOverlay = document.getElementById('project-modal-overlay');
     const modalContainer = document.getElementById('project-modal-container');
@@ -22,14 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     projectCards.forEach(card => {
         card.addEventListener('click', (e) => {
             e.preventDefault(); 
-
             const projectNumber = card.getAttribute('data-project');
             const projectDataContainer = document.getElementById(`project-${projectNumber}-data`);
-            
             if (projectDataContainer) {
                 modalContainer.innerHTML = '';
                 modalContainer.appendChild(projectDataContainer.cloneNode(true));
-                
                 modalOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -42,35 +39,45 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     closeModalButton.addEventListener('click', closeModal);
-    
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
             closeModal();
         }
     });
-
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
             closeModal();
         }
     });
 
-    // NEW: Back to Top Button Logic
+    // Back to Top button logic...
     const backToTopButton = document.getElementById('back-to-top-btn');
-
     window.addEventListener('scroll', () => {
-        // Show button if page is scrolled more than 400px
         if (window.scrollY > 400) {
             backToTopButton.classList.add('visible');
         } else {
             backToTopButton.classList.remove('visible');
         }
     });
-
     backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // NEW: Reveal on Scroll Logic
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once it's visible
+            }
         });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
     });
 });
