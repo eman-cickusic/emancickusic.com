@@ -1,4 +1,4 @@
-<!-- index.html (FINAL & CORRECTED) -->
+<!-- index.html (FINAL & CORRECTED with Modals) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,25 +56,25 @@
                 <h2 class="section-title">Projects</h2>
                 <p class="section-subtitle">A selection of technical case studies demonstrating enterprise-grade practices.</p>
                 <div class="project-grid">
-                    <a href="project-1.html" class="project-card">
+                    <a href="#" class="project-card" data-project="1">
                         <h3>Intelligent Cloud Operations Agent</h3>
                         <p>An AI agent using LangChain and a self-hosted LLM to provide natural language control over GCP operations and infrastructure.</p>
                         <div class="project-tags"><span>LangChain</span><span>Terraform</span><span>FastAPI</span><span>GCP</span></div>
                         <span class="project-link">View Case Study <span class="arrow">&rarr;</span></span>
                     </a>
-                    <a href="project-2.html" class="project-card">
+                    <a href="#" class="project-card" data-project="2">
                         <h3>Real-Time Serverless Data Pipeline</h3>
                         <p>A high-throughput, serverless data pipeline on GCP for ingesting, validating, and analyzing IoT sensor data in real-time.</p>
                         <div class="project-tags"><span>Pub/Sub</span><span>Cloud Functions</span><span>BigQuery</span></div>
                         <span class="project-link">View Case Study <span class="arrow">&rarr;</span></span>
                     </a>
-                    <a href="project-3.html" class="project-card">
+                    <a href="#" class="project-card" data-project="3">
                         <h3>Zero-Touch CI/CD Pipeline</h3>
                         <p>A fully automated CI/CD pipeline using GitHub Actions to build, test, and deploy a containerized application to Google Cloud Run.</p>
                         <div class="project-tags"><span>GitHub Actions</span><span>Terraform</span><span>Cloud Run</span></div>
                         <span class="project-link">View Case Study <span class="arrow">&rarr;</span></span>
                     </a>
-                    <a href="project-4.html" class="project-card">
+                    <a href="#" class="project-card" data-project="4">
                         <h3>Production-Grade Service Mesh</h3>
                         <p>An implementation of a service mesh on GKE using Istio to enforce zero-trust security, canary deployments, and rich observability.</p>
                         <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>Observability</span></div>
@@ -128,6 +128,179 @@
             </div>
         </footer>
     </main>
+
+    <!-- MODAL IMPLEMENTATION -->
+    <div class="modal-overlay" id="project-modal-overlay">
+        <div class="modal-container" id="project-modal-container">
+            <!-- Project details will be injected here by JavaScript -->
+        </div>
+        <button class="modal-close-button" id="modal-close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <!-- HIDDEN PROJECT DATA -->
+    <div style="display: none;">
+        <div id="project-1-data">
+            <div class="modal-header">
+                <h2>Intelligent Cloud Operations Agent</h2>
+                <div class="project-tags"><span>LangChain</span><span>Python</span><span>Terraform</span><span>FastAPI</span></div>
+            </div>
+            <div class="modal-body">
+                <div class="case-study-section">
+                    <h4>Problem Statement</h4>
+                    <p>Cloud operations teams rely on manual queries for routine diagnostics. This project aimed to create an AI agent to automate these tasks using natural language, providing instant Infrastructure-as-Code (IaC) awareness.</p>
+                </div>
+                <div class="case-study-section">
+                    <h4>Architecture</h4>
+                    <svg viewBox="0 0 400 230" class="architecture-svg"><!-- SVG code from project-1.html --></svg>
+                </div>
+                <div class="case-study-section">
+                    <h4>Technical Decisions & Outcomes</h4>
+                    <ul>
+                        <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
+                        <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Security & Cost Optimization</h4>
+                    <ul>
+                        <li><strong>Security Posture:</strong> Access to the Terraform state file was secured by creating a dedicated GCP Service Account with only the `storage.objects.get` permission on the specific `.tfstate` object, adhering to the principle of least privilege.</li>
+                        <li><strong>Cost Optimization:</strong> Using a self-hosted open-source LLM on a preemptible GCE instance significantly reduced operational costs compared to using a proprietary, per-token API like GPT-4, making the tool effectively free for internal use.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Testing Strategy</h4>
+                    <ul>
+                        <li><strong>Unit Testing:</strong> The FastAPI backend logic, including the parsing of natural language queries, was validated using `pytest` to ensure predictable responses.</li>
+                        <li><strong>Integration Testing:</strong> A dedicated test script was created to verify the agent's connection and functional interaction with live GCP APIs (Logging, Firestore) in a non-production environment.</li>
+                    </ul>
+                    <a href="https://github.com/eman-cickusic/Intelligent-Cloud-Operations-Agent-LangChain-GCP" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div id="project-2-data">
+            <div class="modal-header">
+                <h2>Real-Time Serverless Data Pipeline</h2>
+                <div class="project-tags"><span>Pub/Sub</span><span>Cloud Functions</span><span>BigQuery</span><span>Python</span></div>
+            </div>
+            <div class="modal-body">
+                <div class="case-study-section">
+                    <h4>Problem Statement</h4>
+                    <p>IoT devices generate high-volume data streams that require immediate ingestion, validation, and analysis. This project's goal was to build a highly scalable, low-latency, and cost-effective serverless pipeline to handle this workflow.</p>
+                </div>
+                <div class="case-study-section">
+                    <h4>Architecture</h4>
+                    <svg viewBox="0 0 400 230" class="architecture-svg"><!-- SVG code from project-2.html --></svg>
+                </div>
+                <div class="case-study-section">
+                    <h4>Technical Decisions & Outcomes</h4>
+                    <ul>
+                        <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like Cloud Run.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>, all while operating within GCP's zero-cost free tier for the expected data volume.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Security & Cost Optimization</h4>
+                    <ul>
+                        <li><strong>Security Posture:</strong> The Cloud Function was assigned a dedicated, non-default service account with the minimum required roles (`roles/pubsub.publisher`, `roles/bigquery.dataEditor`) to write to the downstream services, preventing privilege escalation.</li>
+                        <li><strong>Cost Optimization:</strong> The entire architecture is serverless, leveraging a "pay-per-use" model. This means zero cost when idle and automatic scaling during traffic spikes, making it vastly more cost-effective than a provisioned-server solution.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Testing Strategy</h4>
+                    <ul>
+                        <li><strong>Unit Testing:</strong> The core Python validation logic within the Cloud Function was unit-tested with `pytest`, using mock data to cover edge cases like malformed payloads and invalid sensor readings.</li>
+                        <li><strong>End-to-End Testing:</strong> A deployment script publishes a test message to the initial Pub/Sub topic and polls the target BigQuery table to confirm the entire pipeline completes successfully within latency targets.</li>
+                    </ul>
+                    <a href="https://github.com/eman-cickusic/Real-Time-Serverless-Data-Pipeline-on-Google-Cloud" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div id="project-3-data">
+            <div class="modal-header">
+                <h2>Zero-Touch CI/CD Pipeline</h2>
+                <div class="project-tags"><span>GitHub Actions</span><span>Terraform</span><span>Docker</span><span>Cloud Run</span></div>
+            </div>
+            <div class="modal-body">
+                <div class="case-study-section">
+                    <h4>Problem Statement</h4>
+                    <p>Manual deployments are slow, error-prone, and unscalable. This project aimed to create a fully automated CI/CD pipeline to achieve zero-touch build, test, and deployment of a containerized application to a serverless platform.</p>
+                </div>
+                <div class="case-study-section">
+                    <h4>Architecture</h4>
+                    <svg viewBox="0 0 400 300" class="architecture-svg"><!-- SVG code from project-3.html --></svg>
+                </div>
+                <div class="case-study-section">
+                    <h4>Technical Decisions & Outcomes</h4>
+                    <ul>
+                        <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature. This eliminated Kubernetes management overhead and provided "scale-to-zero" capability, making it highly cost-effective.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from manual steps taking 30+ minutes to an average, zero-touch execution time of <strong>4 minutes and 15 seconds</strong> from `git push` to live deployment.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Security & Cost Optimization</h4>
+                    <ul>
+                        <li><strong>Security Posture:</strong> The pipeline was secured using Workload Identity Federation, which allows GitHub Actions to securely impersonate a GCP service account with short-lived credentials, completely avoiding static, long-lived keys.</li>
+                        <li><strong>Cost Optimization:</strong> Cloud Run's "scale-to-zero" feature means no charges are incurred when the application is not receiving requests. The use of Artifact Registry for storing images is also more cost-effective than third-party registries for intra-GCP traffic.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Testing Strategy</h4>
+                    <ul>
+                        <li><strong>CI Stage:</strong> The pipeline integrates `pytest` for unit tests and a linter (`flake8`) to enforce code quality, failing the build if checks do not pass.</li>
+                        <li><strong>Infrastructure Validation:</strong> `terraform validate` and `tflint` are used to check syntax and best practices. A `terraform plan` is posted as a pull request comment for mandatory peer review before any infrastructure changes can be merged and applied.</li>
+                    </ul>
+                    <a href="https://github.com/eman-cickusic/gcp-cicd-demo" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div id="project-4-data">
+            <div class="modal-header">
+                <h2>Production-Grade Service Mesh</h2>
+                <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
+            </div>
+            <div class="modal-body">
+                <div class="case-study-section">
+                    <h4>Problem Statement</h4>
+                    <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges using advanced cloud-native patterns.</p>
+                </div>
+                <div class="case-study-section">
+                    <h4>Architecture</h4>
+                    <svg viewBox="0 0 400 240" class="architecture-svg"><!-- SVG code from project-4.html --></svg>
+                </div>
+                <div class="case-study-section">
+                    <h4>Technical Decisions & Outcomes</h4>
+                    <ul>
+                        <li><strong>Architectural Choice:</strong> A canary deployment strategy was chosen over blue/green to demonstrate a more sophisticated, risk-averse release process, enabling production testing with minimal user impact before a full rollout.</li>
+                        <li><strong>Quantifiable Outcome:</strong> The entire GKE cluster and Istio mesh setup was automated with Terraform, reducing deployment time from <strong>over 4 hours</strong> of manual steps to a repeatable, scripted deployment of <strong>under 9 minutes</strong>.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Security & Cost Optimization</h4>
+                    <ul>
+                        <li><strong>Security Posture:</strong> A zero-trust network was enforced using an Istio `AuthorizationPolicy` to deny all traffic by default, with explicit rules only allowing required service-to-service communication. All inter-service traffic is automatically encrypted with mTLS by the mesh.</li>
+                        <li><strong>Cost Optimization:</strong> The GKE cluster was configured with node auto-provisioning and auto-scaling, allowing it to dynamically add or remove nodes based on workload demands, preventing over-provisioning and minimizing costs.</li>
+                    </ul>
+                </div>
+                <div class="case-study-section">
+                    <h4>Zero-Trust Policy Example</h4>
+                    <p>The following Istio `AuthorizationPolicy` denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
+                    <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+# ... rest of yaml code
+</code></pre>
+                </div>
+                <div class="case-study-section">
+                    <h4>Testing Strategy</h4>
+                    <ul>
+                        <li><strong>Infrastructure Testing:</strong> The Terraform configuration was validated using `tflint` for best practices. The entire GKE cluster and Istio installation were deployed to a staging environment first to validate the setup before any production deployment.</li>
+                        <li><strong>Policy Verification:</strong> After applying the `AuthorizationPolicy`, tests were run from a non-whitelisted pod to confirm that access to the `api-service` was correctly denied, explicitly verifying the zero-trust configuration.</li>
+                    </ul>
+                    <a href="https://github.com/eman-cickusic/Installing-Cloud-Service-Mesh-on-Google-Kubernetes-Engine" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js" defer></script>
 </body>
 </html>
