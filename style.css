@@ -1,4 +1,4 @@
-/* style.css (DEFINITIVE FINAL VERSION - with Enhanced Header) */
+/* style.css (DEFINITIVE FINAL VERSION - with Metric Highlights) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -41,12 +41,10 @@ header {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid transparent;
-    /* UPDATED: Added box-shadow to the transition for a smooth effect */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 header.scrolled {
     border-bottom-color: var(--border-color);
-    /* NEW: A subtle shadow to lift the header off the page */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
 }
 nav {
@@ -540,7 +538,7 @@ a:focus, button:focus, [tabindex]:focus {
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 .reveal.visible {
     opacity: 1;
@@ -551,4 +549,33 @@ a:focus, button:focus, [tabindex]:focus {
 }
 .reveal-delay-2 {
     transition-delay: 0.4s;
+}
+
+/* 18. Metric Highlight Styles */
+.metric-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 32px;
+}
+.metric-card {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    flex-grow: 1;
+}
+.metric-card .metric-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+.metric-card .metric-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
