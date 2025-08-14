@@ -1,31 +1,44 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&amp;display=swap');
       .bg { fill: #f5f5f7; }
-      .name { font-family: 'Inter', sans-serif; font-size: 80px; font-weight: 700; fill: #1d1d1f; }
-      .title { font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 400; fill: #6e6e73; }
-      .tag-bg { fill: #ffffff; stroke: #d2d2d7; }
-      .tag-text { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0071e3; }
+      
+      /* Monogram Styles */
+      .monogram-bg { fill: #0071e3; }
+      .monogram-text { font-family: 'Inter', sans-serif; font-size: 80px; font-weight: 700; fill: #ffffff; }
+
+      /* Text Styles */
+      .brand-statement { font-family: 'Inter', sans-serif; font-size: 72px; font-weight: 700; fill: #1d1d1f; line-height: 1.2; }
+      .author-name { font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 500; fill: #545458; }
+      .keywords { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 500; fill: #545458; letter-spacing: 1px; }
     </style>
   </defs>
 
+  <!-- Background -->
   <rect class="bg" width="1200" height="630" />
 
-  <text x="600" y="240" class="name" text-anchor="middle">Eman Čičkušić</text>
-  <text x="600" y="310" class="title" text-anchor="middle">Cloud &amp; Data Engineer</text>
+  <!-- Monogram Logo (Left Side) -->
+  <g transform="translate(140, 235)">
+    <rect class="monogram-bg" width="160" height="160" rx="32" />
+    <text x="80" y="105" class="monogram-text" text-anchor="middle">EČ</text>
+  </g>
 
-  <g transform="translate(190, 400)">
-    <rect x="0" y="0" width="150" height="60" rx="30" class="tag-bg" />
-    <text x="75" y="40" class="tag-text" text-anchor="middle">GCP</text>
-
-    <rect x="180" y="0" width="220" height="60" rx="30" class="tag-bg" />
-    <text x="290" y="40" class="tag-text" text-anchor="middle">Terraform</text>
-
-    <rect x="430" y="0" width="160" height="60" rx="30" class="tag-bg" />
-    <text x="510" y="40" class="tag-text" text-anchor="middle">CI/CD</text>
+  <!-- Text Content (Right Side) -->
+  <g transform="translate(420, 200)">
+    <!-- Brand Statement -->
+    <foreignObject x="0" y="0" width="720" height="200">
+      <h1 xmlns="http://www.w3.org/1999/xhtml" class="brand-statement">
+        Building Resilient, Automated Cloud Systems.
+      </h1>
+    </foreignObject>
     
-    <rect x="620" y="0" width="180" height="60" rx="30" class="tag-bg" />
-    <text x="710" y="40" class="tag-text" text-anchor="middle">Python</text>
+    <!-- Author Name -->
+    <text x="0" y="240" class="author-name">Eman Čičkušić</text>
+    
+    <!-- Keywords -->
+    <text x="0" y="300" class="keywords">
+      GCP │ TERRAFORM │ KUBERNETES │ CI/CD │ PYTHON
+    </text>
   </g>
 </svg>
