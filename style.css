@@ -1,4 +1,4 @@
-/* style.css (MASTER VERSION - REFINED with Tech Links) */
+/* style.css (MASTER VERSION - REFINED with Animated Headline) */
 
 /* 1. Global Styles & Variables */
 :root {
@@ -104,6 +104,17 @@ main { padding-top: 64px; }
     letter-spacing: -2px;
     margin-bottom: 16px;
     line-height: 1.15;
+    
+    /* NEW: Animated Gradient Properties */
+    color: transparent;
+    background-image: linear-gradient(90deg, 
+        var(--primary-color) 0%, 
+        var(--text-color) 50%, 
+        var(--primary-color) 100%);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: moveGradient 5s linear infinite;
 }
 .hero p {
     font-size: 1.25rem;
@@ -241,7 +252,6 @@ footer p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px a
 .contact-links a { color: var(--primary-color); text-decoration: none; margin: 0 16px; font-size: 1.1rem; font-weight: 500; }
 .contact-links a:hover { text-decoration: underline; }
 .footer-bottom { margin-top: 64px; color: var(--text-secondary); font-size: 0.9rem; }
-.colophon { font-size: 0.8rem; margin-top: 16px; }
 
 /* 8. Case Study & Modal Styles */
 .modal-container { /* This is the scrollable content area */
@@ -517,4 +527,11 @@ a:focus, button:focus, [tabindex]:focus {
 .tech-link:hover {
     background-color: rgba(0, 113, 227, 0.08);
     border-bottom-color: var(--primary-color);
+}
+
+/* NEW: Keyframe for Animated Gradient */
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
