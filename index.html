@@ -1,4 +1,4 @@
-<!-- index.html (FINAL & DEFINITIVELY CORRECTED with All Fixes) -->
+<!-- index.html (DEFINITIVE FINAL VERSION) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +45,7 @@
     <main id="main-content">
         <section class="hero">
             <div class="hero-content">
-                <h1 class="fade-in">Building production-grade, zero-trust cloud infrastructure on GCP.</h1>
+                <h1 class="fade-in"><span>Building production-grade, zero-trust cloud infrastructure on GCP.</span></h1>
                 <p class="fade-in-delay-1">Google Certified Cloud Engineer specializing in Infrastructure-as-Code, CI/CD, and serverless data pipelines. I design and build secure, scalable, and cost-efficient systems that solve real-world problems.</p>
                 <div class="hero-status fade-in-delay-1"><span>Status:</span> Actively seeking full-time Cloud/Data Engineering roles.</div>
                 <div class="hero-links fade-in-delay-2"><a href="mailto:cickusiceman@gmail.com" class="cta-button">Get in Touch</a></div>
@@ -123,21 +123,16 @@
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; 2025 Eman Čičkušić</p>
-                    
                 </div>
             </div>
         </footer>
     </main>
 
-    <!-- MODAL IMPLEMENTATION -->
     <div class="modal-overlay" id="project-modal-overlay">
-        <div class="modal-container" id="project-modal-container">
-            <!-- Project details will be injected here by JavaScript -->
-        </div>
+        <div class="modal-container" id="project-modal-container"></div>
         <button class="modal-close-button" id="modal-close" aria-label="Close modal">&times;</button>
     </div>
 
-    <!-- HIDDEN PROJECT DATA -->
     <div style="display: none;">
         <div id="project-1-data">
             <div class="case-study-content">
@@ -152,47 +147,7 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 230" class="architecture-svg">
-                            <defs>
-                                <marker id="arrow-marker-main-p1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                            </defs>
-                            <g transform="translate(60, 115)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">User Interface</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">(Gradio)</text>
-                            </g>
-                            <path d="M 110 115 L 140 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
-                            <g transform="translate(195, 115)">
-                                <rect x="-50" y="-55" width="100" height="110" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-40" class="diagram-title">FastAPI Backend</text>
-                                <text text-anchor="middle" y="-28" class="diagram-subtitle">(on GCE VM)</text>
-                                <rect x="-40" y="-15" width="80" height="35" rx="2" fill="#f9f9fb"></rect>
-                                <text text-anchor="middle" y="-2" class="diagram-subtitle" font-size="9px">LangChain</text>
-                                <text text-anchor="middle" y="8" class="diagram-subtitle" font-size="9px">Agent</text>
-                                <rect x="-40" y="25" width="80" height="25" rx="2" fill="#f9f9fb"></rect>
-                                <text text-anchor="middle" y="42" class="diagram-subtitle" font-size="9px">Self-Hosted LLM</text>
-                            </g>
-                            <path d="M 250 85 L 285 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
-                            <path d="M 250 115 L 285 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
-                            <path d="M 250 145 L 285 170" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path>
-                            <g transform="translate(330, 60)">
-                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Storage</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">Read State</text>
-                            </g>
-                            <g transform="translate(330, 115)">
-                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Firestore</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">CRUD</text>
-                            </g>
-                            <g transform="translate(330, 170)">
-                                <rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="0" class="diagram-title">Cloud Logging</text>
-                                <text text-anchor="middle" y="12" class="diagram-subtitle">Query</text>
-                            </g>
-                        </svg>
+                        <svg viewBox="0 0 400 230" class="architecture-svg"><defs><marker id="arrow-marker-main-p1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><g transform="translate(60, 115)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="0" class="diagram-title">User Interface</text><text text-anchor="middle" y="12" class="diagram-subtitle">(Gradio)</text></g><path d="M 110 115 L 140 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path><g transform="translate(195, 115)"><rect x="-50" y="-55" width="100" height="110" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-40" class="diagram-title">FastAPI Backend</text><text text-anchor="middle" y="-28" class="diagram-subtitle">(on GCE VM)</text><rect x="-40" y="-15" width="80" height="35" rx="2" fill="#f9f9fb"></rect><text text-anchor="middle" y="-2" class="diagram-subtitle" font-size="9px">LangChain</text><text text-anchor="middle" y="8" class="diagram-subtitle" font-size="9px">Agent</text><rect x="-40" y="25" width="80" height="25" rx="2" fill="#f9f9fb"></rect><text text-anchor="middle" y="42" class="diagram-subtitle" font-size="9px">Self-Hosted LLM</text></g><path d="M 250 85 L 285 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path><path d="M 250 115 L 285 115" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path><path d="M 250 145 L 285 170" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p1)"></path><g transform="translate(330, 60)"><rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="0" class="diagram-title">Cloud Storage</text><text text-anchor="middle" y="12" class="diagram-subtitle">Read State</text></g><g transform="translate(330, 115)"><rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="0" class="diagram-title">Firestore</text><text text-anchor="middle" y="12" class="diagram-subtitle">CRUD</text></g><g transform="translate(330, 170)"><rect x="-45" y="-15" width="90" height="30" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="0" class="diagram-title">Cloud Logging</text><text text-anchor="middle" y="12" class="diagram-subtitle">Query</text></g></svg>
                     </div>
                     <div class="case-study-section">
                         <h4>Technical Decisions & Outcomes</h4>
@@ -218,45 +173,7 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 230" class="architecture-svg">
-                            <defs>
-                                <marker id="arrow-marker-main-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                                <marker id="arrow-marker-secondary-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                            </defs>
-                            <g transform="translate(50, 70)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">IoT Devices</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Data Source</text>
-                            </g>
-                            <path d="M 100 70 L 130 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
-                            <g transform="translate(175, 70)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Ingestion</text>
-                            </g>
-                            <path d="M 225 70 L 255 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
-                            <g transform="translate(300, 70)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">Cloud Function</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Validation</text>
-                            </g>
-                            <path d="M 300 95 L 300 125" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path>
-                            <g transform="translate(300, 150)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">BigQuery</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Analysis</text>
-                            </g>
-                            <path d="M 175 95 L 175 125" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p2)"></path>
-                            <g transform="translate(175, 150)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Alerts Topic</text>
-                            </g>
-                        </svg>
+                        <svg viewBox="0 0 400 230" class="architecture-svg"><defs><marker id="arrow-marker-main-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker id="arrow-marker-secondary-p2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><g transform="translate(50, 70)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">IoT Devices</text><text text-anchor="middle" y="10" class="diagram-subtitle">Data Source</text></g><path d="M 100 70 L 130 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path><g transform="translate(175, 70)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text><text text-anchor="middle" y="10" class="diagram-subtitle">Ingestion</text></g><path d="M 225 70 L 255 70" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path><g transform="translate(300, 70)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">Cloud Function</text><text text-anchor="middle" y="10" class="diagram-subtitle">Validation</text></g><path d="M 300 95 L 300 125" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p2)"></path><g transform="translate(300, 150)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">BigQuery</text><text text-anchor="middle" y="10" class="diagram-subtitle">Analysis</text></g><path d="M 175 95 L 175 125" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p2)"></path><g transform="translate(175, 150)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">Pub/Sub</text><text text-anchor="middle" y="10" class="diagram-subtitle">Alerts Topic</text></g></svg>
                     </div>
                     <div class="case-study-section">
                         <h4>Technical Decisions & Outcomes</h4>
@@ -282,44 +199,7 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 300" class="architecture-svg">
-                            <defs>
-                                <marker id="arrow-marker-main-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                                <marker id="arrow-marker-secondary-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                            </defs>
-                            <g transform="translate(60, 60)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">Developer</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">git push</text>
-                            </g>
-                            <path d="M 105 60 L 140 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
-                            <g transform="translate(195, 60)">
-                                <rect x="-55" y="-20" width="110" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">GitHub Actions CI</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Build, Test, Push</text>
-                            </g>
-                            <path d="M 255 60 L 290 60" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p3)"></path>
-                            <g transform="translate(340, 60)">
-                                <rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="5" class="diagram-title">Artifact Registry</text>
-                            </g>
-                            <path d="M 195 85 L 195 125" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
-                            <g transform="translate(195, 150)">
-                                <rect x="-65" y="-20" width="130" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">GitHub Actions CD</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Terraform Plan & Apply</text>
-                            </g>
-                            <path d="M 195 175 L 195 215" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path>
-                            <g transform="translate(195, 240)">
-                                <rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect>
-                                <text text-anchor="middle" y="-5" class="diagram-title">Cloud Run</text>
-                                <text text-anchor="middle" y="10" class="diagram-subtitle">Deployed Service</text>
-                            </g>
-                        </svg>
+                        <svg viewBox="0 0 400 300" class="architecture-svg"><defs><marker id="arrow-marker-main-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker id="arrow-marker-secondary-p3" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-secondary"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><g transform="translate(60, 60)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">Developer</text><text text-anchor="middle" y="10" class="diagram-subtitle">git push</text></g><path d="M 105 60 L 140 60" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path><g transform="translate(195, 60)"><rect x="-55" y="-20" width="110" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">GitHub Actions CI</text><text text-anchor="middle" y="10" class="diagram-subtitle">Build, Test, Push</text></g><path d="M 255 60 L 290 60" class="diagram-arrow-secondary" marker-end="url(#arrow-marker-secondary-p3)"></path><g transform="translate(340, 60)"><rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="5" class="diagram-title">Artifact Registry</text></g><path d="M 195 85 L 195 125" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path><g transform="translate(195, 150)"><rect x="-65" y="-20" width="130" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">GitHub Actions CD</text><text text-anchor="middle" y="10" class="diagram-subtitle">Terraform Plan & Apply</text></g><path d="M 195 175 L 195 215" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p3)"></path><g transform="translate(195, 240)"><rect x="-45" y="-20" width="90" height="40" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="-5" class="diagram-title">Cloud Run</text><text text-anchor="middle" y="10" class="diagram-subtitle">Deployed Service</text></g></svg>
                     </div>
                     <div class="case-study-section">
                         <h4>Security & Cost Optimization</h4>
@@ -345,46 +225,7 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 240" class="architecture-svg">
-                            <defs>
-                                <marker id="arrow-marker-main-p4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main">
-                                    <path d="M 0 0 L 10 5 L 0 10 z"></path>
-                                </marker>
-                            </defs>
-                            <rect x="5" y="5" width="390" height="190" rx="8" class="diagram-node-cluster"></rect>
-                            <text x="15" y="22" class="diagram-label">GKE Cluster (Istio Enabled)</text>
-                            <g transform="translate(70, 100)">
-                                <rect x="-40" y="-20" width="80" height="40" rx="4" class="diagram-node"></rect>
-                                <text x="0" y="5" class="diagram-title" text-anchor="middle">Frontend</text>
-                            </g>
-                            <path d="M 115 100 L 145 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path>
-                            <g transform="translate(200, 75)">
-                                <rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect>
-                                <text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v1</text>
-                                <text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(90% Traffic)</text>
-                            </g>
-                            <g transform="translate(200, 125)">
-                                <rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect>
-                                <text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v2</text>
-                                <text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(10% Canary)</text>
-                            </g>
-                            <g transform="translate(335, 100)">
-                                <rect x="-40" y="-60" width="80" height="120" rx="4" fill="#fdfdff"></rect>
-                                <text text-anchor="middle" y="-45" class="diagram-title">Observability</text>
-                                <g transform="translate(0, -15)">
-                                    <rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect>
-                                    <text text-anchor="middle" y="4" class="diagram-subtitle">Monitoring</text>
-                                </g>
-                                <g transform="translate(0, 25)">
-                                    <rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect>
-                                    <text text-anchor="middle" y="4" class="diagram-subtitle">Trace</text>
-                                </g>
-                            </g>
-                            <path d="M 255 100 L 285 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path>
-                            <g transform="translate(200, 220)" text-anchor="middle">
-                                <text class="diagram-label" x="0" y="0">All traffic secured with mTLS</text>
-                            </g>
-                        </svg>
+                        <svg viewBox="0 0 400 240" class="architecture-svg"><defs><marker id="arrow-marker-main-p4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><rect x="5" y="5" width="390" height="190" rx="8" class="diagram-node-cluster"></rect><text x="15" y="22" class="diagram-label">GKE Cluster (Istio Enabled)</text><g transform="translate(70, 100)"><rect x="-40" y="-20" width="80" height="40" rx="4" class="diagram-node"></rect><text x="0" y="5" class="diagram-title" text-anchor="middle">Frontend</text></g><path d="M 115 100 L 145 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path><g transform="translate(200, 75)"><rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect><text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v1</text><text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(90% Traffic)</text></g><g transform="translate(200, 125)"><rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect><text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v2</text><text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(10% Canary)</text></g><g transform="translate(335, 100)"><rect x="-40" y="-60" width="80" height="120" rx="4" fill="#fdfdff"></rect><text text-anchor="middle" y="-45" class="diagram-title">Observability</text><g transform="translate(0, -15)"><rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="4" class="diagram-subtitle">Monitoring</text></g><g transform="translate(0, 25)"><rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="4" class="diagram-subtitle">Trace</text></g></g><path d="M 255 100 L 285 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path><g transform="translate(200, 220)" text-anchor="middle"><text class="diagram-label" x="0" y="0">All traffic secured with mTLS</text></g></svg>
                     </div>
                     <div class="case-study-section">
                         <h4>Zero-Trust Policy Example</h4>
