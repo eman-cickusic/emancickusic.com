@@ -1,4 +1,4 @@
-<!-- index.html (FINAL & DEFINITIVELY CORRECTED with Updated SVG for Project 3) -->
+<!-- index.html (FINAL & DEFINITIVELY CORRECTED with Tech Links) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,7 @@
     <meta property="og:description" content="Building production-grade, zero-trust cloud infrastructure on GCP. Explore my projects and technical case studies.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eman-cickusic.github.io/">
-    <meta property="og:image" content="https://eman-cickusic.github.io/social-preview.svg"> 
+    <meta property="og:image" content="https://eman-cickusic.github.io/social-preview.png"> 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -91,9 +91,9 @@
                         <h3>Data Engineer</h3>
                         <p class="experience-company">Vodafone (Remote)</p>
                         <ul>
-                            <li>Engineered and optimized event-driven, serverless data pipelines using Cloud Functions and Pub/Sub, processing over 1,000 events per second with sub-2-second latency.</li>
-                            <li>Automated the provisioning of all GCP infrastructure using Terraform, enforcing strict module versioning and achieving 100% IaC coverage for the production environment.</li>
-                            <li>Re-architected a multi-terabyte BigQuery data warehouse by implementing table partitioning and clustering, reducing query costs by over 60% and improving dashboard load times by 200%.</li>
+                            <li>Engineered and optimized event-driven, serverless data pipelines using <a href="https://cloud.google.com/functions" target="_blank" rel="noopener noreferrer" class="tech-link">Cloud Functions</a> and <a href="https://cloud.google.com/pubsub" target="_blank" rel="noopener noreferrer" class="tech-link">Pub/Sub</a>, processing over 1,000 events per second with sub-2-second latency.</li>
+                            <li>Automated the provisioning of all GCP infrastructure using <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer" class="tech-link">Terraform</a>, enforcing strict module versioning and achieving 100% IaC coverage for the production environment.</li>
+                            <li>Re-architected a multi-terabyte <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener noreferrer" class="tech-link">BigQuery</a> data warehouse by implementing table partitioning and clustering, reducing query costs by over 60% and improving dashboard load times by 200%.</li>
                         </ul>
                     </div>
                     <div class="experience-item">
@@ -197,7 +197,7 @@
                     <div class="case-study-section">
                         <h4>Technical Decisions & Outcomes</h4>
                         <ul>
-                            <li><strong>Architectural Choice:</strong> A self-hosted Hugging Face model on a GCE VM was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
+                            <li><strong>Architectural Choice:</strong> A self-hosted <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" class="tech-link">Hugging Face</a> model on a <a href="https://cloud.google.com/compute" target="_blank" rel="noopener noreferrer" class="tech-link">GCE VM</a> was chosen over proprietary APIs to ensure data privacy and eliminate API costs, accepting the trade-off of increased management overhead.</li>
                             <li><strong>Quantifiable Outcome:</strong> Automated <strong>5 core operational checks</strong>, reducing the time for routine diagnostics from 5-10 minutes manually to <strong>under 15 seconds</strong> via natural language.</li>
                         </ul>
                     </div>
@@ -261,7 +261,7 @@
                     <div class="case-study-section">
                         <h4>Technical Decisions & Outcomes</h4>
                         <ul>
-                            <li><strong>Architectural Choice:</strong> Cloud Functions Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like Cloud Run.</li>
+                            <li><strong>Architectural Choice:</strong> <a href="https://cloud.google.com/functions" target="_blank" rel="noopener noreferrer" class="tech-link">Cloud Functions</a> Gen 2 was selected for its superior event-driven capabilities and longer processing timeouts, making it ideal for complex validation logic without needing a containerized environment like <a href="https://cloud.google.com/run" target="_blank" rel="noopener noreferrer" class="tech-link">Cloud Run</a>.</li>
                             <li><strong>Quantifiable Outcome:</strong> The pipeline was architected to handle <strong>1,000+ messages per second</strong> with an average end-to-end latency of <strong>under 2 seconds</strong>.</li>
                         </ul>
                     </div>
@@ -322,10 +322,10 @@
                         </svg>
                     </div>
                     <div class="case-study-section">
-                        <h4>Technical Decisions & Outcomes</h4>
+                        <h4>Security & Cost Optimization</h4>
                         <ul>
-                            <li><strong>Architectural Choice:</strong> Google Cloud Run was the ideal deployment target over GKE due to its fully managed, serverless nature, which eliminated Kubernetes management overhead.</li>
-                            <li><strong>Quantifiable Outcome:</strong> The pipeline fully automated the deployment lifecycle, reducing the process from 30+ minutes to an average execution time of <strong>4 minutes and 15 seconds</strong>.</li>
+                            <li><strong>Security Posture:</strong> The pipeline was secured using <a href="https://cloud.google.com/iam/docs/workload-identity-federation" target="_blank" rel="noopener noreferrer" class="tech-link">Workload Identity Federation</a>, which allows <a href="https://github.com/features/actions" target="_blank" rel="noopener noreferrer" class="tech-link">GitHub Actions</a> to securely impersonate a GCP service account with short-lived credentials.</li>
+                            <li><strong>Cost Optimization:</strong> <a href="https://cloud.google.com/run" target="_blank" rel="noopener noreferrer" class="tech-link">Cloud Run</a>'s "scale-to-zero" feature means no charges are incurred when the application is not receiving requests.</li>
                         </ul>
                     </div>
                     <a href="https://github.com/eman-cickusic/gcp-cicd-demo" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
@@ -341,7 +341,7 @@
                 <div class="modal-body">
                     <div class="case-study-section">
                         <h4>Problem Statement</h4>
-                        <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on GKE to solve these challenges.</p>
+                        <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on <a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer" class="tech-link">GKE</a> to solve these challenges.</p>
                     </div>
                     <div class="case-study-section">
                         <h4>Architecture</h4>
@@ -388,7 +388,7 @@
                     </div>
                     <div class="case-study-section">
                         <h4>Zero-Trust Policy Example</h4>
-                        <p>The following Istio `AuthorizationPolicy` denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
+                        <p>The following <a href="https://istio.io/latest/docs/reference/config/security/authorization-policy/" target="_blank" rel="noopener noreferrer" class="tech-link">Istio AuthorizationPolicy</a> denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
                         <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
@@ -412,7 +412,8 @@ spec:
             </div>
         </div>
     </div>
-<button id="back-to-top-btn" title="Go to top">&#x2191;</button>
+
+    <button id="back-to-top-btn" title="Go to top">&#x2191;</button>
     <script src="script.js" defer></script>
 </body>
 </html>
