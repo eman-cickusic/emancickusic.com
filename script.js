@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const exitIntentOverlay = document.getElementById('exit-intent-overlay');
     const exitIntentCloseButton = document.getElementById('exit-intent-close');
     const magneticButtons = document.querySelectorAll('.cta-button');
-    const readingProgressBar = document.getElementById('reading-progress-bar');
 
     // 2. INITIALIZE ALL LOGIC
     
@@ -35,16 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const projectDataContainer = document.getElementById(`project-${projectNumber}-data`);
                 
                 if (projectDataContainer) {
-                    // Inject content first, then find the content wrapper
-                    modalContainer.innerHTML = '<div class="reading-progress-bar" id="reading-progress-bar"></div>' + projectDataContainer.innerHTML;
+                    modalContainer.innerHTML = '';
+                    modalContainer.appendChild(projectDataContainer.cloneNode(true));
                     
                     modalOverlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
 
-                    // Reset scroll position and progress bar on open
+                    const readingProgressBar = document.createElement('div');
+                    readingProgressBar.classList.add('reading-progress-bar');
+                    modalContainer.prepend(readingProgressBar);
+
                     modalContainer.scrollTop = 0;
-                    const newProgressBar = modalContainer.querySelector('.reading-progress-bar');
-                    if (newProgressBar) newProgressBar.style.width = '0%';
+                    readingProgressBar.style.width = '0%';
+
+                    modalContainer.addEventListener('scroll', () => {
+                        const scrollTop = modalContainer.scrollTop;
+                        const scrollHeight = modalContainer.scrollHeight;
+                        const clientHeight = modalContainer.clientHeight;
+                        
+                        if (scrollHeight > clientHeight) {
+                            const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                            readingProgressBar.style.width = `${scrollPercentage}%`;
+                        }
+                    });
                 }
             });
         });
@@ -52,9 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeModal = () => {
             modalOverlay.classList.remove('active');
             document.body.style.overflow = '';
-            // Reset progress bar on close
-            const progressBar = modalContainer.querySelector('.reading-progress-bar');
-            if(progressBar) progressBar.style.width = '0%';
         };
 
         closeModalButton.addEventListener('click', closeModal);
@@ -62,26 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === modalOverlay) {
                 closeModal();
             }
-        });
-    }
-
-    // Reading Progress Bar Logic
-    if (modalContainer) {
-        modalContainer.addEventListener('scroll', () => {
-            const progressBar = modalContainer.querySelector('.reading-progress-bar');
-            if (!progressBar) return;
-
-            const scrollTop = modalContainer.scrollTop;
-            const scrollHeight = modalContainer.scrollHeight;
-            const clientHeight = modalContainer.clientHeight;
-            
-            if (scrollHeight <= clientHeight) {
-                progressBar.style.width = '0%';
-                return;
-            }
-
-            const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
-            progressBar.style.width = `${scrollPercentage}%`;
         });
     }
 
