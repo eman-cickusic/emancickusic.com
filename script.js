@@ -168,3 +168,111 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+const canvas = document.getElementById('cloud-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let nodes = [];
+        const numNodes = window.innerWidth > 768 ? 100 : 30; // Fewer nodes on mobile
+        const edgeDistance = 150;
+        const nodeBaseRadius = 2;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        const colors = {
+            node: 'rgba(150, 150, 150, 0.7)',
+            edge: 'rgba(0, 113, 227, 0.15)',
+            activeNode: 'rgba(0, 113, 227, 0.9)'
+        };
+
+        const setCanvasSize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        };
+
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Slow drift
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = nodeBaseRadius + Math.random() * 2;
+                this.opacity = 0;
+            }
+
+            update() {
+                // Drift
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Fade in/out logic
+                if (this.opacity < 1) {
+                    this.opacity += 0.01;
+                }
+
+                // Edge wrapping
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                const distToMouse = Math.hypot(this.x - mouse.x, this.y - mouse.y);
+                const isActive = distToMouse < mouse.radius;
+
+                ctx.fillStyle = isActive ? colors.activeNode : colors.node;
+                ctx.globalAlpha = this.opacity;
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        const init = () => {
+            setCanvasSize();
+            nodes = [];
+            for (let i = 0; i < numNodes; i++) {
+                nodes.push(new Node());
+            }
+        };
+
+        const connect = () => {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+                    if (dist < edgeDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = colors.edge;
+                        ctx.globalAlpha = Math.min(nodes[i].opacity, nodes[j].opacity) * (1 - dist / edgeDistance);
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+            }
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            connect();
+            requestAnimationFrame(animate);
+        };
+        
+        window.addEventListener('resize', init);
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        init();
+        animate();
+    }
+});```
