@@ -222,49 +222,7 @@
                 </div>
             </div>
         </div>
-        <div id="project-4-data">
-            <div class="case-study-content">
-                <div class="modal-header">
-                    <h2>Production-Grade Service Mesh</h2>
-                    <div class="project-tags"><span>GKE</span><span>Istio</span><span>Terraform</span><span>mTLS</span><span>Observability</span></div>
-                </div>
-                <div class="modal-body">
-                    <div class="case-study-section">
-                        <h4>Problem Statement</h4>
-                        <p>In a microservices architecture, ensuring secure communication, fault tolerance, and deep observability is complex. This project demonstrates a production-grade service mesh on <a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer" class="tech-link">GKE</a> to solve these challenges.</p>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Architecture</h4>
-                        <svg viewBox="0 0 400 240" class="architecture-svg"><defs><marker id="arrow-marker-main-p4" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" class="diagram-arrow-main"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><rect x="5" y="5" width="390" height="190" rx="8" class="diagram-node-cluster"></rect><text x="15" y="22" class="diagram-label">GKE Cluster (Istio Enabled)</text><g transform="translate(70, 100)"><rect x="-40" y="-20" width="80" height="40" rx="4" class="diagram-node"></rect><text x="0" y="5" class="diagram-title" text-anchor="middle">Frontend</text></g><path d="M 115 100 L 145 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path><g transform="translate(200, 75)"><rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect><text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v1</text><text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(90% Traffic)</text></g><g transform="translate(200, 125)"><rect x="-50" y="-20" width="100" height="40" rx="4" class="diagram-node"></rect><text x="0" y="-2" class="diagram-title" text-anchor="middle">API Service v2</text><text x="0" y="10" class="diagram-subtitle" text-anchor="middle">(10% Canary)</text></g><g transform="translate(335, 100)"><rect x="-40" y="-60" width="80" height="120" rx="4" fill="#fdfdff"></rect><text text-anchor="middle" y="-45" class="diagram-title">Observability</text><g transform="translate(0, -15)"><rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="4" class="diagram-subtitle">Monitoring</text></g><g transform="translate(0, 25)"><rect x="-30" y="-12" width="60" height="24" rx="4" class="diagram-node"></rect><text text-anchor="middle" y="4" class="diagram-subtitle">Trace</text></g></g><path d="M 255 100 L 285 100" class="diagram-arrow-main" marker-end="url(#arrow-marker-main-p4)"></path><g transform="translate(200, 220)" text-anchor="middle"><text class="diagram-label" x="0" y="0">All traffic secured with mTLS</text></g></svg>
-                    </div>
-                    <div class="case-study-section">
-                        <h4>Zero-Trust Policy Example</h4>
-                        <p>The following <a href="https://istio.io/latest/docs/reference/config/security/authorization-policy/" target="_blank" rel="noopener noreferrer" class="tech-link">Istio AuthorizationPolicy</a> denies all traffic in the namespace by default, then explicitly allows `GET` requests from the `frontend` service account to the `api-service`.</p>
-                        <pre><code class="language-yaml">apiVersion: security.istio.io/v1beta1
-kind: AuthorizationPolicy
-metadata:
-  name: api-service-policy
-spec:
-  selector:
-    matchLabels:
-      app: api-service
-  action: ALLOW
-  rules:
-  - from:
-    - source:
-        principals: ["cluster.local/ns/default/sa/frontend"]
-    to:
-    - operation:
-        methods: ["GET"]
-</code></pre>
-                    </div>
-                    <a href="https://github.com/eman-cickusic/Installing-Cloud-Service-Mesh-on-Google-Kubernetes-Engine" target="_blank" rel="noopener noreferrer" class="cta-button">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="project-5-data">
+        <div id="project-5-data">
             <div class="case-study-content">
                 <div class="modal-header">
                     <h2>End-to-End DevSecOps Pipeline</h2>
@@ -291,7 +249,6 @@ spec:
             </div>
         </div>
 
-        <!-- NEW: Project 6 Data -->
         <div id="project-6-data">
             <div class="case-study-content">
                 <div class="modal-header">
@@ -321,7 +278,7 @@ spec:
     </div>
 
     <button id="back-to-top-btn" title="Go to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
