@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exitIntentOverlay = document.getElementById('exit-intent-overlay');
     const exitIntentCloseButton = document.getElementById('exit-intent-close');
     const magneticButtons = document.querySelectorAll('.cta-button');
+    const canvas = document.getElementById('cloud-canvas'); // Canvas constant
 
     // 2. INITIALIZE ALL LOGIC
     
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Reveal on Scroll (Must run for content to be visible)
+    // Reveal on Scroll
     if (revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -160,19 +161,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (modalOverlay && modalOverlay.classList.contains('active')) {
-                modalOverlay.querySelector('.modal-close-button').click();
+                const closeBtn = modalOverlay.querySelector('.modal-close-button');
+                if(closeBtn) closeBtn.click();
             }
             if (exitIntentOverlay && exitIntentOverlay.classList.contains('active')) {
-                exitIntentOverlay.querySelector('.exit-intent-close').click();
+                const closeBtn = exitIntentOverlay.querySelector('.exit-intent-close');
+                if(closeBtn) closeBtn.click();
             }
         }
     });
-});
-const canvas = document.getElementById('cloud-canvas');
+
+    // Interactive Cloud Canvas Logic
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let nodes = [];
-        const numNodes = window.innerWidth > 768 ? 100 : 30; // Fewer nodes on mobile
+        const numNodes = window.innerWidth > 768 ? 100 : 30;
         const edgeDistance = 150;
         const nodeBaseRadius = 2;
         const mouse = { x: null, y: null, radius: 150 };
@@ -192,23 +195,18 @@ const canvas = document.getElementById('cloud-canvas');
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5; // Slow drift
+                this.vx = (Math.random() - 0.5) * 0.5;
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.radius = nodeBaseRadius + Math.random() * 2;
                 this.opacity = 0;
             }
 
             update() {
-                // Drift
                 this.x += this.vx;
                 this.y += this.vy;
-
-                // Fade in/out logic
                 if (this.opacity < 1) {
                     this.opacity += 0.01;
                 }
-
-                // Edge wrapping
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
@@ -217,7 +215,6 @@ const canvas = document.getElementById('cloud-canvas');
                 ctx.beginPath();
                 const distToMouse = Math.hypot(this.x - mouse.x, this.y - mouse.y);
                 const isActive = distToMouse < mouse.radius;
-
                 ctx.fillStyle = isActive ? colors.activeNode : colors.node;
                 ctx.globalAlpha = this.opacity;
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -275,4 +272,4 @@ const canvas = document.getElementById('cloud-canvas');
         init();
         animate();
     }
-});```
+});
