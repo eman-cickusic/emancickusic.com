@@ -100,22 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reveal on Scroll
+    const revealElements = document.querySelectorAll('.reveal');
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // If the element is the project section, handle it specially
-                if (entry.target.id === 'projects') {
-                    const projectCards = entry.target.querySelectorAll('.project-card');
-                    projectCards.forEach((card, index) => {
-                        // Apply a staggered delay to each card
-                        card.style.transitionDelay = `${index * 150}ms`;
-                        card.classList.add('visible');
-                    });
-                } else {
-                    // Otherwise, just reveal the element
-                    entry.target.classList.add('visible');
-                }
-                observer.unobserve(entry.target); // Stop observing once revealed
+                entry.target.classList.add('visible'); // This now works for all sections
+                observer.unobserve(entry.target);
             }
         });
     }, {
