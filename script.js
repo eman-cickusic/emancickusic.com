@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modals
+    // Modals & Reading Progress Bar
     if (modalOverlay) {
         projectCardsAll.forEach(card => {
             card.addEventListener('click', (e) => {
@@ -37,15 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalContainer.innerHTML = '';
                     modalContainer.appendChild(projectDataContainer.cloneNode(true));
                     
-                    modalOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-
                     const readingProgressBar = document.createElement('div');
                     readingProgressBar.classList.add('reading-progress-bar');
                     modalContainer.prepend(readingProgressBar);
 
                     modalContainer.scrollTop = 0;
-                    readingProgressBar.style.width = '0%';
+                    
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
 
                     modalContainer.addEventListener('scroll', () => {
                         const scrollTop = modalContainer.scrollTop;
