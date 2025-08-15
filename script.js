@@ -100,22 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reveal on Scroll
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // This now works for all sections
-                observer.unobserve(entry.target);
-            }
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
         });
-    }, {
-        threshold: 0.1
-    });
-
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
-    });
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    }
 
     // 3D Tilt for Project Cards
     projectCardsAll.forEach(card => {
