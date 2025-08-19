@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exitIntentCloseButton = document.getElementById('exit-intent-close');
     const magneticButtons = document.querySelectorAll('.cta-button');
 
-    // 2. INITIALIZE ALL LOGIC
+    // 2. INITIALIZE ALL THE LOGIC
     
     // Header Scroll
     if (header) {
