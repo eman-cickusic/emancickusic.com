@@ -399,3 +399,27 @@ nav a:hover::after, .contact-links a:hover::after { transform: scaleX(1); }
 .exit-intent-prompt p { color: var(--text-secondary); margin-bottom: 32px; }
 .exit-intent-close { position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 2rem; color: var(--text-secondary); cursor: pointer; line-height: 1; opacity: .6; transition: opacity .3s ease; }
 .exit-intent-close:hover { opacity: 1; }
+
+/* 22. Custom Scrollbar Styles */
+/* This targets WebKit-based browsers (Chrome, Safari, Edge) */
+
+/* The main scrollbar element */
+::-webkit-scrollbar {
+    width: 8px; /* Makes the scrollbar thinner than the default */
+}
+
+/* The track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: var(--background-color); /* Matches the page's main background */
+}
+
+/* The draggable scrolling handle */
+::-webkit-scrollbar-thumb {
+    background: var(--border-color); /* Uses your subtle border color for the handle */
+    border-radius: 4px; /* Softens the edges to match your site's aesthetic */
+}
+
+/* The handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary); /* Darkens slightly on hover for user feedback */
+}
